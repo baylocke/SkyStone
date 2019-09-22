@@ -52,7 +52,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="Basic: Iterative OpMode", group="Iterative Opmode")
 @Disabled
-public class MainOpMode extends OpMode
+public class MainTeleop extends OpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -90,18 +90,24 @@ public class MainOpMode extends OpMode
      */
     @Override
     public void loop() {
-        robot.flDrvWheel.setPower(-gamepad1.left_stick_y);
-        robot.frDrvWheel.setPower(-gamepad1.right_stick_y);
+        robot.drive360(gamepad1.left_stick_x, -gamepad1.left_stick_y, gamepad1.right_stick_x);
 
+        robot.lift.setPower(-gamepad2.right_stick_y);
 
-
-        if(gamepad1.a) {
-            robot.lGrabber.setPosition(1);
-            robot.rGrabber.setPosition(1);
+        if(gamepad1.y) {
+            robot.grabberFront.setPosition(1);
         }
-        else if (gamepad1.x){
-            robot.lGrabber.setPosition(0);
-            robot.rGrabber.setPosition(0);
+        else if (gamepad1.a){
+            robot.grabberFront.setPosition(0);
+        }
+
+        if(gamepad1.x) {
+            robot.grabberSideR.setPosition(1);
+            robot.grabberSideL.setPosition(1);
+        }
+        else if (gamepad1.b){
+            robot.grabberSideR.setPosition(0);
+            robot.grabberSideL.setPosition(0);
         }
     }
 

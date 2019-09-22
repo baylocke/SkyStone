@@ -7,13 +7,14 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 public class MainHardware {
-    DcMotor frDrvWheel = null;
-    DcMotor flDrvWheel = null;
-    DcMotor brDrvWheel = null;
-    DcMotor blDrvWheel = null;
-    Servo rGrabber = null;
-    Servo lGrabber = null;
-
+    DcMotor driveFrontR = null;
+    DcMotor driveFrontL = null;
+    DcMotor driveRearR = null;
+    DcMotor driveRearL = null;
+    DcMotor lift = null;
+    Servo grabberFront = null;
+    Servo grabberSideR = null;
+    Servo grabberSideL = null;
 
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
@@ -28,27 +29,34 @@ public class MainHardware {
     public void init(HardwareMap ahwMap) {
         hwMap = ahwMap;
 
-        frDrvWheel = hwMap.get(DcMotor.class,"frDrvWheel");
-        frDrvWheel.setDirection(DcMotorSimple.Direction.REVERSE);
-        flDrvWheel = hwMap.get(DcMotor.class,"flDrvWheel");
-        brDrvWheel = hwMap.get(DcMotor.class,"brDrvWheel");
-        brDrvWheel.setDirection(DcMotorSimple.Direction.REVERSE);
-        blDrvWheel = hwMap.get(DcMotor.class,"blDrvWheel");
-        rGrabber = hwMap.get(Servo.class,"rGrabber");
-        lGrabber = hwMap.get(Servo.class,"lGrabber");
+        driveFrontR = hwMap.get(DcMotor.class,"driveFrontR");
+        driveFrontR.setDirection(DcMotorSimple.Direction.REVERSE);
+        driveFrontL = hwMap.get(DcMotor.class,"driveFrontL");
+        driveRearR = hwMap.get(DcMotor.class,"driveRearR");
+        driveRearR.setDirection(DcMotorSimple.Direction.REVERSE);
+        driveRearL = hwMap.get(DcMotor.class,"driveRearL");
+        lift = hwMap.get(DcMotor.class, "lift");
+        grabberFront = hwMap.get(Servo.class,"grabberFront");
+        grabberSideR = hwMap.get(Servo.class,"grabberSideR");
+        grabberSideL = hwMap.get(Servo.class,"grabberSideL");
     }
 
     public void setDrivetrainMode(DcMotor.RunMode mode) {
-        frDrvWheel.setMode(mode);
-        flDrvWheel.setMode(mode);
+        driveFrontR.setMode(mode);
+        driveFrontL.setMode(mode);
+        driveRearR.setMode(mode);
+        driveRearL.setMode(mode);
     }
 
-    public void driveInches(double numInches){
+    public void driveInches(double numInches) {
         double ticPerInch40 = 19.8943682;
-        flDrvWheel.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        frDrvWheel.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
+        driveFrontL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
+        driveFrontR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
     }
-
-
+    public void drive360(double x, double y, double turn){
+        driveFrontR.setPower(y - x - 2*turn);
+        driveFrontL.setPower(y + x + 2*turn);
+        driveRearR.setPower(y + x - 2*turn);
+        driveRearL.setPower(y - x + 2*turn);
+    }
 }
-
