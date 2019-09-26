@@ -6,6 +6,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
+
 public class MainHardware {
     DcMotor driveFrontR = null;
     DcMotor driveFrontL = null;
@@ -15,6 +17,7 @@ public class MainHardware {
     Servo grabberFront = null;
     Servo grabberSideR = null;
     Servo grabberSideL = null;
+    SensorColor sensor_color = null;
 
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
@@ -39,6 +42,7 @@ public class MainHardware {
         grabberFront = hwMap.get(Servo.class,"grabberFront");
         grabberSideR = hwMap.get(Servo.class,"grabberSideR");
         grabberSideL = hwMap.get(Servo.class,"grabberSideL");
+        sensor_color = hwMap.get(SensorColor.class, "sensor_color");
     }
 
     public void setDrivetrainMode(DcMotor.RunMode mode) {
