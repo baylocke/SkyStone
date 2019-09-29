@@ -80,6 +80,7 @@ public class PracticeColor extends LinearOpMode {
         // get a reference to our ColorSensor object.
         colorSensor = hardwareMap.get(ColorSensor.class, "sensor_color");
 
+        //FIX THIS LATER
         // Set the LED in the beginning
         colorSensor.enableLed(bLedOn);
 
@@ -91,7 +92,7 @@ public class PracticeColor extends LinearOpMode {
         while (opModeIsActive()) {
 
             // check the status of the x button on either gamepad.
-            bCurrState = true;
+            bCurrState = false;
 
             // check for button state transitions.
             if (bCurrState && (bCurrState != bPrevState))  {
@@ -114,27 +115,27 @@ public class PracticeColor extends LinearOpMode {
             telemetry.addData("Green", colorSensor.green());
             telemetry.addData("Blue ", colorSensor.blue());
             telemetry.addData("Hue", hsvValues[0]);
-            telemetry.update();
+
 
             // change the background color to match the color detected by the RGB sensor.
             // pass a reference to the hue, saturation, and value array as an argument
             // to the HSVToColor method.
-           /* relativeLayout.post(new Runnable() {
+            relativeLayout.post(new Runnable() {
                 public void run() {
                     relativeLayout.setBackgroundColor(Color.HSVToColor(0xff, values));
                 }
             });
 
-            telemetry.update();  */
+            telemetry.update();
         }
 
         // Set the panel back to the default color
-      /*
+
         relativeLayout.post(new Runnable() {
             public void run() {
                 relativeLayout.setBackgroundColor(Color.WHITE);
             }
         });
-       */
+       
     }
 }
