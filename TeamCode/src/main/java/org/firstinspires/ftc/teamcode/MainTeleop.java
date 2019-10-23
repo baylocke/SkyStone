@@ -50,7 +50,7 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Basic: Iterative OpMode", group="Iterative Opmode")
+@TeleOp(name="Main Teleop", group="Iterative Opmode")
 public class MainTeleop extends OpMode
 {
     // Declare OpMode members.
@@ -63,9 +63,6 @@ public class MainTeleop extends OpMode
     @Override
     public void init() {
         robot.init(hardwareMap);
-        telemetry.addData("Status", "Initialized");
-
-        // Tell the driver that initialization is complete.
         telemetry.addData("Status", "Initialized");
     }
 
@@ -100,14 +97,14 @@ public class MainTeleop extends OpMode
             robot.grabberFront.setPosition(0);
         }
 
-        if(gamepad1.x) {
-            robot.grabberSideR.setPosition(1);
-            robot.grabberSideL.setPosition(1);
-        }
-        else if (gamepad1.b){
+     /*   if(gamepad1.x) {
             robot.grabberSideR.setPosition(0);
             robot.grabberSideL.setPosition(0);
         }
+        else if (gamepad1.b){
+            robot.grabberSideR.setPosition(1);
+            robot.grabberSideL.setPosition(1);
+        }   */
     }
 
     /*

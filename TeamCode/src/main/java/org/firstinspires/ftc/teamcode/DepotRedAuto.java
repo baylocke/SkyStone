@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -23,57 +24,39 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @Autonomous(name="DepotRedAuto", group="Iterative Opmode")
-public class DepotRedAuto extends OpMode
+public class DepotRedAuto extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     MainHardware robot = new MainHardware();
 
     /*
-     * Code to run ONCE when the driver hits INIT
-     */
-    @Override
-    public void init() {
-        robot.init(hardwareMap);
-        telemetry.addData("Status", "Initialized");
-
-        // Tell the driver that initialization is complete.
-        telemetry.addData("Status", "Initialized");
-    }
-
-    /*
-     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
-     */
-    @Override
-    public void init_loop() {
-    }
-
-    /*
      * Code to run ONCE when the driver hits PLAY
      */
     @Override
-    public void start() {
+    public void runOpMode() {
         runtime.reset();
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        robot.driveInches(10.0);
+        robot.colorSensor.enableLed(true);
+
+        robot.driveInches(46.5);
+        for (int i=0; i<5; i++) {
+            if (robot.isYellow()) {
+                robot.strafeInR(8);
+            }
+            else{
+                robot.grabberFront.setPosition(1);
+                sleep(2000);
+                robot.driveInches(42 + (20-(8*i)));
+                robot.grabberFront.setPosition(0);
+                robot.driveInches((-(42 + (20-(8*i))))+8);
+            }
+
+        }
 
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
-     */
-    @Override
-    public void loop() {
-    }
-
-
-    /*
-     * Code to run ONCE after the driver hits STOP
-     */
-    @Override
-    public void stop() {
-    }
 
 }
