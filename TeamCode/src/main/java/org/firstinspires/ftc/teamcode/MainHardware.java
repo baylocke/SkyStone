@@ -14,7 +14,8 @@ public class MainHardware {
     DcMotor driveRearL = null;
     DcMotor lift = null;
     Servo grabberFront = null;
-    ColorSensor colorSensor = null;
+    //ColorSensor colorSensor = null;
+    RobotGyro gyro = null;
     //Servo grabberSideR = null;
     //Servo grabberSideL = null;
 
@@ -40,9 +41,11 @@ public class MainHardware {
         driveRearL = hwMap.get(DcMotor.class,"driveRearL");
         lift = hwMap.get(DcMotor.class, "lift");
         grabberFront = hwMap.get(Servo.class,"grabberFront");
-        colorSensor = hwMap.get(ColorSensor.class, "colorSensor");
+        //colorSensor = hwMap.get(ColorSensor.class, "colorSensor");
+        gyro = new RobotGyro(hwMap);
         //grabberSideR = hwMap.get(Servo.class,"grabberSideR");
         //grabberSideL = hwMap.get(Servo.class,"grabberSideL");
+
 
     }
 
@@ -93,10 +96,10 @@ public class MainHardware {
             return -1;
     }
 
-    public boolean isYellow(){
-        int value = RGBtoHSV(colorSensor.red(),colorSensor.green(),colorSensor.blue());
-        return (50 < value && value <130);
-    }
+  //  public boolean isYellow(){
+       // int value = RGBtoHSV(colorSensor.red(),colorSensor.green(),colorSensor.blue());
+        //return (50 < value && value <130);
+  //  }
 
     public void strafeInR(double numInches){
         double ticPerInch40 = 19.8943682;
@@ -112,6 +115,52 @@ public class MainHardware {
         driveFrontR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
         driveRearL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
         driveRearR.setTargetPosition(-((int) (ticPerInch40 * numInches + 0.5)));
+    }
+
+    public void turn (double power) {
+        driveFrontR.setPower(-power);
+        driveFrontL.setPower(power);
+        driveRearR.setPower(-power);
+        driveRearL.setPower(power);
+    }
+
+    public void turnDegrees (int degrees){
+        double originalAngle = gyro.imu.getAngularOrientation().firstAngle;
+        double deltaAngle = 0.0;
+        double targetAngle = originalAngle + degrees;
+
+        double angleAdd = 0.0;
+        double lastAngle = originalAngle;
+
+        if (degrees > 0){
+            while (degrees < deltaAngle){
+
+                if(deltaAngle < -1){
+                    angleAdd = 360;
+                }
+
+                deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle + angleAdd;
+
+                turn(-.6*2*(degrees-deltaAngle)/degrees);
+                lastAngle = gyro.imu.getAngularOrientation().firstAngle;
+            }
+        }
+
+        else if (degrees < 0){
+            while (degrees>deltaAngle){
+
+                if (deltaAngle > 1){
+                    angleAdd = 360;
+                }
+
+                deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle - angleAdd;
+
+                turn(.6*2*(degrees-deltaAngle)/degrees);
+                lastAngle = gyro.imu.getAngularOrientation().firstAngle;
+            }
+        }
+
+        turn(0);
     }
 
 

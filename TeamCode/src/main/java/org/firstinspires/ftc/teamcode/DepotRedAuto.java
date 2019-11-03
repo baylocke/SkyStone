@@ -23,7 +23,7 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="DepotRedAuto", group="Iterative Opmode")
+@Autonomous(name="DepotRedAuto", group="Linear Opmode")
 public class DepotRedAuto extends LinearOpMode
 {
     // Declare OpMode members.
@@ -39,20 +39,29 @@ public class DepotRedAuto extends LinearOpMode
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        robot.colorSensor.enableLed(true);
+        //robot.colorSensor.enableLed(true);
 
         robot.driveInches(46.5);
         for (int i=0; i<5; i++) {
-            if (robot.isYellow()) {
-                robot.strafeInR(8);
+            if (runtime.time() >= 25.0){
+                robot.driveInches(19 + (20-(8*i)));
             }
+          //  if (robot.isYellow()) {
+          //      robot.strafeInR(8);
+           // }
             else{
                 robot.grabberFront.setPosition(1);
+
                 sleep(2000);
                 robot.driveInches(42 + (20-(8*i)));
                 robot.grabberFront.setPosition(0);
-                robot.driveInches((-(42 + (20-(8*i))))+8);
+                robot.driveInches((-((42 + (20-(8*i)))-24)));
+
             }
+            if (runtime.time() >= 25.0){
+                robot.driveInches(19 + (20-(8*i)));
+            }
+
 
         }
 
