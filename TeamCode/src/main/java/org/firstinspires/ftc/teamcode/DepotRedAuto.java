@@ -52,7 +52,7 @@ public class DepotRedAuto extends LinearOpMode
             else{
                 robot.grabberFront.setPosition(1);
 
-                sleep(2000);
+                robot.turnDegrees(90);
                 robot.driveInches(42 + (20-(8*i)));
                 robot.grabberFront.setPosition(0);
                 robot.driveInches((-((42 + (20-(8*i)))-24)));
