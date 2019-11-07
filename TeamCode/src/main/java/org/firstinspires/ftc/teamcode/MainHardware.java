@@ -12,7 +12,8 @@ public class MainHardware {
     DcMotor driveFrontL = null;
     DcMotor driveRearR = null;
     DcMotor driveRearL = null;
-    DcMotor lift = null;
+    DcMotor liftL = null;
+    //DcMotor liftR = null;
     Servo grabberFront = null;
     //ColorSensor colorSensor = null;
     RobotGyro gyro = null;
@@ -39,7 +40,8 @@ public class MainHardware {
         driveRearR = hwMap.get(DcMotor.class,"driveRearR");
         driveRearR.setDirection(DcMotorSimple.Direction.REVERSE);
         driveRearL = hwMap.get(DcMotor.class,"driveRearL");
-        lift = hwMap.get(DcMotor.class, "lift");
+        liftL = hwMap.get(DcMotor.class, "liftL");
+        //liftR = hwMap.get(DcMotor.class, "liftR");
         grabberFront = hwMap.get(Servo.class,"grabberFront");
         //colorSensor = hwMap.get(ColorSensor.class, "colorSensor");
         gyro = new RobotGyro(hwMap);
@@ -99,7 +101,7 @@ public class MainHardware {
   //  public boolean isYellow(){
        // int value = RGBtoHSV(colorSensor.red(),colorSensor.green(),colorSensor.blue());
         //return (50 < value && value <130);
-  //  }
+  //w  }
 
     public void strafeInR(double numInches){
         double ticPerInch40 = 19.8943682;

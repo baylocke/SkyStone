@@ -88,7 +88,8 @@ public class MainTeleop extends OpMode
     public void loop() {
         robot.drive360(gamepad1.left_stick_x, -gamepad1.left_stick_y, gamepad1.right_stick_x);
 
-        robot.lift.setPower(-gamepad2.right_stick_y);
+        robot.liftL.setPower(-gamepad2.right_stick_y);
+        //robot.liftR.setPower(-gamepad2.right_stick_y);
 
         if(gamepad1.y) {
             robot.grabberFront.setPosition(1);
