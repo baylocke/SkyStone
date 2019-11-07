@@ -13,7 +13,7 @@ public class MainHardware {
     DcMotor driveRearR = null;
     DcMotor driveRearL = null;
     DcMotor liftL = null;
-    //DcMotor liftR = null;
+    DcMotor liftR = null;
     Servo grabberFront = null;
     //ColorSensor colorSensor = null;
     RobotGyro gyro = null;
@@ -41,7 +41,7 @@ public class MainHardware {
         driveRearR.setDirection(DcMotorSimple.Direction.REVERSE);
         driveRearL = hwMap.get(DcMotor.class,"driveRearL");
         liftL = hwMap.get(DcMotor.class, "liftL");
-        //liftR = hwMap.get(DcMotor.class, "liftR");
+        liftR = hwMap.get(DcMotor.class, "liftR");
         grabberFront = hwMap.get(Servo.class,"grabberFront");
         //colorSensor = hwMap.get(ColorSensor.class, "colorSensor");
         gyro = new RobotGyro(hwMap);
@@ -65,12 +65,13 @@ public class MainHardware {
         driveRearL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
         driveRearR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
     }
-    public void drive360(double x, double y, double turn){
-        driveFrontR.setPower(y - x - 2*turn);
-        driveFrontL.setPower(y + x + 2*turn);
+    public void drive360(double x, double y, double turn) {
         driveRearR.setPower(y + x - 2*turn);
+        driveFrontR.setPower(y - x - 2*turn);
         driveRearL.setPower(y - x + 2*turn);
+        driveFrontL.setPower(y + x + 2*turn);
     }
+
     public int RGBtoHSV(int rVal, int gVal, int bVal){
         int r = rVal/255;
         int g = gVal/255;
