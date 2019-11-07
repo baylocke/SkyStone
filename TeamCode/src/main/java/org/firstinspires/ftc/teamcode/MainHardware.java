@@ -35,10 +35,9 @@ public class MainHardware {
         hwMap = ahwMap;
 
         driveFrontR = hwMap.get(DcMotor.class,"driveFrontR");
-        driveFrontR.setDirection(DcMotorSimple.Direction.REVERSE);
         driveFrontL = hwMap.get(DcMotor.class,"driveFrontL");
         driveRearR = hwMap.get(DcMotor.class,"driveRearR");
-        driveRearR.setDirection(DcMotorSimple.Direction.REVERSE);
+        //driveRearR.setDirection(DcMotorSimple.Direction.REVERSE);
         driveRearL = hwMap.get(DcMotor.class,"driveRearL");
         liftL = hwMap.get(DcMotor.class, "liftL");
         liftR = hwMap.get(DcMotor.class, "liftR");
@@ -47,6 +46,8 @@ public class MainHardware {
         gyro = new RobotGyro(hwMap);
         //grabberSideR = hwMap.get(Servo.class,"grabberSideR");
         //grabberSideL = hwMap.get(Servo.class,"grabberSideL");
+        driveFrontR.setDirection(DcMotorSimple.Direction.REVERSE);
+        driveRearL.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
     }
