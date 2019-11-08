@@ -15,7 +15,7 @@ public class MainHardware {
     DcMotor liftL = null;
     DcMotor liftR = null;
     Servo grabberFront = null;
-    //ColorSensor colorSensor = null;
+    ColorSensor colorSensor = null;
     RobotGyro gyro = null;
     //Servo grabberSideR = null;
     //Servo grabberSideL = null;
@@ -42,7 +42,7 @@ public class MainHardware {
         liftL = hwMap.get(DcMotor.class, "liftL");
         liftR = hwMap.get(DcMotor.class, "liftR");
         grabberFront = hwMap.get(Servo.class,"grabberFront");
-        //colorSensor = hwMap.get(ColorSensor.class, "colorSensor");
+        colorSensor = hwMap.get(ColorSensor.class, "colorSensor");
         gyro = new RobotGyro(hwMap);
         //grabberSideR = hwMap.get(Servo.class,"grabberSideR");
         //grabberSideL = hwMap.get(Servo.class,"grabberSideL");
@@ -53,18 +53,25 @@ public class MainHardware {
     }
 
     public void setDrivetrainMode(DcMotor.RunMode mode) {
-        driveFrontR.setMode(mode);
-        driveFrontL.setMode(mode);
-        driveRearR.setMode(mode);
-        driveRearL.setMode(mode);
+        this.driveFrontR.setMode(mode);
+        this.driveFrontL.setMode(mode);
+        this.driveRearR.setMode(mode);
+        this.driveRearL.setMode(mode);
     }
 
-    public void driveInches(double numInches) {
+    public void driveInches(double numInches, double power) {
         double ticPerInch40 = 19.8943682;
-        driveFrontL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        driveFrontR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        driveRearL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        driveRearR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
+        double inches = numInches;
+        double powerCool = power;
+        driveFrontL.setTargetPosition((int) (-ticPerInch40 * inches + 0.5));
+        driveFrontR.setTargetPosition((int) (-ticPerInch40 * inches + 0.5));
+        driveRearL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+
+        driveFrontL.setPower(powerCool);
+        driveFrontR.setPower(powerCool);
+        driveRearL.setPower(powerCool);
+        driveRearR.setPower(powerCool);
     }
     public void drive360(double x, double y, double turn) {
         driveRearR.setPower(y + x - 2*turn);
@@ -100,25 +107,25 @@ public class MainHardware {
             return -1;
     }
 
-  //  public boolean isYellow(){
-       // int value = RGBtoHSV(colorSensor.red(),colorSensor.green(),colorSensor.blue());
-        //return (50 < value && value <130);
-  //w  }
+    public boolean isYellow(){
+        int value = RGBtoHSV(colorSensor.red(),colorSensor.green(),colorSensor.blue());
+        return (50 < value && value <130);
+    }
 
     public void strafeInR(double numInches){
         double ticPerInch40 = 19.8943682;
         driveFrontL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
         driveFrontR.setTargetPosition(-(int) (ticPerInch40 * numInches + 0.5));
-        driveRearL.setTargetPosition(-((int) (ticPerInch40 * numInches + 0.5)));
-        driveRearR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
+        driveRearL.setTargetPosition(((int) (ticPerInch40 * numInches + 0.5)));
+        driveRearR.setTargetPosition(-(int) (ticPerInch40 * numInches + 0.5));
     }
 
     public void strafeInL(double numInches){
         double ticPerInch40 = 19.8943682;
         driveFrontL.setTargetPosition(-((int) (ticPerInch40 * numInches + 0.5)));
         driveFrontR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        driveRearL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        driveRearR.setTargetPosition(-((int) (ticPerInch40 * numInches + 0.5)));
+        driveRearL.setTargetPosition(-(int) (ticPerInch40 * numInches + 0.5));
+        driveRearR.setTargetPosition(((int) (ticPerInch40 * numInches + 0.5)));
     }
 
     public void turn (double power) {

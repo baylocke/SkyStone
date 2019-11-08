@@ -35,14 +35,34 @@ public class DepotRedAuto extends LinearOpMode
      */
     @Override
     public void runOpMode() {
+        telemetry.addData("PLAYING", true);
+        telemetry.update();
+
+        robot.init(hardwareMap);
         runtime.reset();
+
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        waitForStart();
+
+        telemetry.addData("INITIALIZED", true);
+        telemetry.update();
+
+        robot.colorSensor.enableLed(true);
+
+        double numInches = 29.0;
+        double power = 0.6;
+        robot.driveInches(numInches, power);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        //robot.colorSensor.enableLed(true);
+        sleep(10000);
 
-        robot.driveInches(46.5);
-        for (int i=0; i<5; i++) {
+        if(robot.isYellow()){
+            robot.strafeInL(1);
+            robot.grabberFront.setPosition(1);
+        }
+
+        /*for (int i=0; i<5; i++) {
             if (runtime.time() >= 25.0){
                 robot.driveInches(19 + (20-(8*i)));
             }
@@ -63,7 +83,7 @@ public class DepotRedAuto extends LinearOpMode
             }
 
 
-        }
+        } */
 
     }
 
