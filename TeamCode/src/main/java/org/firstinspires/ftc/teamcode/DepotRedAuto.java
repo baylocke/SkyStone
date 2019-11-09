@@ -48,19 +48,25 @@ public class DepotRedAuto extends LinearOpMode
         telemetry.addData("INITIALIZED", true);
         telemetry.update();
 
+        robot.gripper.setPosition(1.0);
+        sleep (5000);
+        robot.gripper.setPosition(0.0);
+
+        sleep(5000);
+
         robot.colorSensor.enableLed(true);
 
-        double numInches = 29.0;
-        double power = 0.6;
-        robot.driveInches(numInches, power);
+        if(robot.isYellow()){
+            robot.driveInches(5);
+            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        }
+
+        robot.driveInches(30);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         sleep(10000);
 
-        if(robot.isYellow()){
-            robot.strafeInL(1);
-            robot.grabberFront.setPosition(1);
-        }
+
 
         /*for (int i=0; i<5; i++) {
             if (runtime.time() >= 25.0){

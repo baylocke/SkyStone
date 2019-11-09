@@ -36,31 +36,23 @@ public class DepoRedFoundation extends LinearOpMode
     @Override
     public void runOpMode() {
         runtime.reset();
+        telemetry.addData("PLAYING", true);
+        telemetry.update();
+
+        robot.init(hardwareMap);
+        runtime.reset();
+
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        waitForStart();
+
+        telemetry.addData("INITIALIZED", true);
+        telemetry.update();
+
+        robot.colorSensor.enableLed(true);
+
+        robot.driveInches(5);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-        //robot.colorSensor.enableLed(true);
-
-        robot.driveInches(46.5);
-        for (int i=0; i<5; i++) {
-            if (runtime.time() >= 25.0){
-                robot.driveInches(19 + (20-(8*i)));
-            }
-            //  if (robot.isYellow()) {
-            //      robot.strafeInR(8);
-            // }
-            else{
-                robot.grabberFront.setPosition(1);
-
-                robot.turnDegrees(90);
-                robot.driveInches(42 + (20-(8*i)));
-                robot.grabberFront.setPosition(0);
-                robot.driveInches((-((42 + (20-(8*i)))-24)));
-
-            }
-            if (runtime.time() >= 25.0){
-                robot.driveInches(19 + (20-(8*i)));
-            }
 
 
         }
@@ -68,4 +60,4 @@ public class DepoRedFoundation extends LinearOpMode
     }
 
 
-}
+
