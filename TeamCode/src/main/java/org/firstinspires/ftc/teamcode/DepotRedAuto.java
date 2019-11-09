@@ -45,8 +45,20 @@ public class DepotRedAuto extends LinearOpMode
 
         waitForStart();
 
-        telemetry.addData("INITIALIZED", true);
+        telemetry.addData("ANGLE", robot.gyro.imu.getAngularOrientation().firstAngle);
         telemetry.update();
+
+        robot.turnDegrees(90);
+        sleep (10000);
+
+        robot.strafeInL(10);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep (5000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.strafeInR(10);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep (5000);
 
         robot.gripper.setPosition(1.0);
         sleep (5000);

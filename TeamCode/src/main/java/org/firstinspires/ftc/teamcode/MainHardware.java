@@ -43,13 +43,14 @@ public class MainHardware {
         driveRearL = hwMap.get(DcMotor.class,"driveRearL");
         liftL = hwMap.get(DcMotor.class, "liftL");
         liftR = hwMap.get(DcMotor.class, "liftR");
+        liftL.setDirection(DcMotorSimple.Direction.REVERSE);
         grabberFront = hwMap.get(Servo.class,"grabberFront");
         colorSensor = hwMap.get(ColorSensor.class, "colorSensor");
         gyro = new RobotGyro(hwMap);
         gripper = hwMap.get(Servo.class, "gripper");
         //grabberSideR = hwMap.get(Servo.class,"grabberSideR");
         //grabberSideL = hwMap.get(Servo.class,"grabberSideL");
-        driveFrontR.setDirection(DcMotorSimple.Direction.REVERSE);
+        driveFrontL.setDirection(DcMotorSimple.Direction.REVERSE);
         driveRearL.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
@@ -64,19 +65,19 @@ public class MainHardware {
 
     public void driveInches(double numInches) {
         double ticPerInch40 = 66.85;
-        double ticPerInch402 = 89.127;
+        //double ticPerInch402 = 89.127;
         //double ticPerInch40 = 1.0;
         double inches = numInches;
 
-        driveFrontL.setTargetPosition((int) -(ticPerInch40 * inches + 0.5));
-        driveFrontR.setTargetPosition((int) -(ticPerInch40 * inches + 0.5));
-        driveRearL.setTargetPosition((int) -(ticPerInch40 * inches + 0.5));
-        driveRearR.setTargetPosition((int) -(ticPerInch40 * inches + 0.5));
+        driveFrontL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveFrontR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
 
         driveFrontL.setPower(.4);
-        driveFrontR.setPower(-.4);
+        driveFrontR.setPower(.4);
         driveRearL.setPower(.4);
-        driveRearR.setPower(-.4);
+        driveRearR.setPower(.4);
     }
     public void drive360(double x, double y, double turn) {
         driveRearR.setPower(y + x - 2*turn);
@@ -118,37 +119,32 @@ public class MainHardware {
     }
 
     public void strafeInR(double numInches){
-        double ticPerInch40 = 66.85;
+        double ticPerInch40 = 66.845;
         driveFrontL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        driveFrontR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
+        driveFrontR.setTargetPosition(-(int) (ticPerInch40 * numInches + 0.5));
         driveRearL.setTargetPosition(-((int) (ticPerInch40 * numInches + 0.5)));
-        driveRearR.setTargetPosition(-(int) (ticPerInch40 * numInches + 0.5));
+        driveRearR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
 
         driveFrontL.setPower(.4);
-        driveFrontR.setPower(-.4);
-        driveRearL.setPower(.4);
-        driveRearR.setPower(-.4);
-    }
-
-    public void strafeInL(double numInches){
-        double ticPerInch40 = 66.85;
-        driveFrontL.setTargetPosition(((int) (ticPerInch40 * numInches + 0.5)));
-        driveFrontR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        driveRearL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
-        driveRearR.setTargetPosition(((int) (ticPerInch40 * numInches + 0.5)));
-
-        driveFrontL.setPower(-.4);
-        driveFrontR.setPower(-.4);
+        driveFrontR.setPower(.4);
         driveRearL.setPower(.4);
         driveRearR.setPower(.4);
     }
 
-    public void turn (double power) {
-        driveFrontR.setPower(-power);
-        driveFrontL.setPower(power);
-        driveRearR.setPower(-power);
-        driveRearL.setPower(power);
+    public void strafeInL(double numInches){
+        double ticPerInch40 = 66.85;
+        driveFrontL.setTargetPosition(-((int) (ticPerInch40 * numInches + 0.5)));
+        driveFrontR.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
+        driveRearL.setTargetPosition((int) (ticPerInch40 * numInches + 0.5));
+        driveRearR.setTargetPosition(-((int) (ticPerInch40 * numInches + 0.5)));
+
+        driveFrontL.setPower(.4);
+        driveFrontR.setPower(.4);
+        driveRearL.setPower(.4);
+        driveRearR.setPower(.4);
     }
+
+
 
     public void turnDegrees (int degrees){
         double originalAngle = gyro.imu.getAngularOrientation().firstAngle;
@@ -159,7 +155,7 @@ public class MainHardware {
         double lastAngle = originalAngle;
 
         if (degrees > 0){
-            while (degrees < deltaAngle){
+            while (degrees > deltaAngle-1.5){
 
                 if(deltaAngle < -1){
                     angleAdd = 360;
@@ -189,7 +185,14 @@ public class MainHardware {
         turn(0);
     }
 
+    public void turn (double power) {
+        setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        driveFrontR.setPower(-power);
+        driveFrontL.setPower(power);
+        driveRearR.setPower(-power);
+        driveRearL.setPower(power);
 
+    }
 
 
 }
