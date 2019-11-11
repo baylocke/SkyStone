@@ -23,8 +23,8 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="BuildSiteBlueAuto", group="Linear Opmode")
-public class BuildSiteBlueAuto extends LinearOpMode
+@Autonomous(name="SimpleForward", group="Linear Opmode")
+public class SimpleForward extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -37,32 +37,13 @@ public class BuildSiteBlueAuto extends LinearOpMode
     public void runOpMode() {
         robot.init(hardwareMap);
         runtime.reset();
-
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         waitForStart();
 
-        robot.gripper.setPosition(1);
-        sleep(2000);
-
-        robot.strafeInL(42);
+        robot.driveInches(10);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.gripper.setPosition(0);
-        sleep(2000);
-
-        robot.strafeInR(60);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.gripper.setPosition(1);
-        sleep(2000);
-
-        robot.driveInches(45);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(50000);
     }
 
 

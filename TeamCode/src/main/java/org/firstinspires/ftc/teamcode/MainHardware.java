@@ -155,7 +155,7 @@ public class MainHardware {
         double lastAngle = originalAngle;
 
         if (degrees > 0){
-            while (degrees > deltaAngle-1.5){
+            while (degrees > deltaAngle+2.5){
 
                 if(deltaAngle < -1){
                     angleAdd = 360;
@@ -169,7 +169,7 @@ public class MainHardware {
         }
 
         else if (degrees < 0){
-            while (degrees>deltaAngle){
+            while (degrees<deltaAngle){
 
                 if (deltaAngle > 1){
                     angleAdd = 360;

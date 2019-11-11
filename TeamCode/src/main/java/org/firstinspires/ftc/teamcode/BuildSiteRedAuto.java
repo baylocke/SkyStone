@@ -45,7 +45,12 @@ public class BuildSiteRedAuto extends LinearOpMode
         robot.gripper.setPosition(1);
         sleep(2000);
 
-        robot.strafeInR(34);
+        robot.driveInches(-24);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(4000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.strafeInR(42);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(5000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -53,15 +58,14 @@ public class BuildSiteRedAuto extends LinearOpMode
         robot.gripper.setPosition(0);
         sleep(2000);
 
-        robot.strafeInL(34);
+        robot.strafeInL(60);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(5000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.gripper.setPosition(1);
-        sleep(2000);
 
         robot.driveInches(45);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
 

@@ -45,65 +45,31 @@ public class DepotRedAuto extends LinearOpMode
 
         waitForStart();
 
-        telemetry.addData("ANGLE", robot.gyro.imu.getAngularOrientation().firstAngle);
-        telemetry.update();
+        robot.driveInches(31);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(5000);
+        robot.grabberFront.setPosition(1);
+        sleep(2000);
+        robot.driveInches(-4);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(5000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        //robot.turnDegrees(-90);
+        //sleep(4000);
+        //robot.driveInches(40);
+        //robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //sleep(5000);
+        robot.strafeInR(45);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(5000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.turnDegrees(90);
-        sleep (10000);
+        robot.grabberFront.setPosition(0);
+        sleep(2000);
 
         robot.strafeInL(10);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep (5000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.strafeInR(10);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep (5000);
-
-        robot.gripper.setPosition(1.0);
-        sleep (5000);
-        robot.gripper.setPosition(0.0);
-
         sleep(5000);
-
-        robot.colorSensor.enableLed(true);
-
-        if(robot.isYellow()){
-            robot.driveInches(5);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        }
-
-        robot.driveInches(30);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-        sleep(10000);
-
-
-
-        /*for (int i=0; i<5; i++) {
-            if (runtime.time() >= 25.0){
-                robot.driveInches(19 + (20-(8*i)));
-            }
-          //  if (robot.isYellow()) {
-          //      robot.strafeInR(8);
-           // }
-            else{
-                robot.grabberFront.setPosition(1);
-
-                robot.turnDegrees(90);
-                robot.driveInches(42 + (20-(8*i)));
-                robot.grabberFront.setPosition(0);
-                robot.driveInches((-((42 + (20-(8*i)))-24)));
-
-            }
-            if (runtime.time() >= 25.0){
-                robot.driveInches(19 + (20-(8*i)));
-            }
-
-
-        } */
-
     }
-
 
 }

@@ -23,64 +23,61 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="FoundationBlueAuto", group="Linear Opmode")
-public class FoundationBlueAuto extends LinearOpMode
+@Autonomous(name="DepotBlueAuto", group="Linear Opmode")
+public class DepoBlueAuto extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     MainHardware robot = new MainHardware();
-    double moveRight = 66.845*34;
-    double MoveBack = 66.845*52;
 
     /*
      * Code to run ONCE when the driver hits PLAY
      */
     @Override
     public void runOpMode() {
+        telemetry.addData("PLAYING", true);
+        telemetry.update();
+
         robot.init(hardwareMap);
         runtime.reset();
 
-        robot.gripper.setPosition(1);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        waitForStart();
+
+        robot.driveInches(30);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(4000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.grabberFront.setPosition(1);
+        sleep(1000);
+
+        robot.driveInches(-15);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(2000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.driveFrontL.setTargetPosition((int)-moveRight);
-        robot.driveFrontR.setTargetPosition((int)moveRight);
-        robot.driveRearL.setTargetPosition((int)-moveRight);
-        robot.driveRearR.setTargetPosition((int)moveRight);
-        robot.driveFrontL.setPower(-.5);
-        robot.driveFrontR.setPower(.5);
-        robot.driveRearL.setPower(.5);
-        robot.driveRearR.setPower(-.5);
+        //robot.turnDegrees(90);
+        //sleep(4000);
+        //robot.turn(.6);
+        //sleep(1000);
+        //robot.turn(0);
+        robot.strafeInL(70);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
-        robot.gripper.setPosition(0);
-        sleep(2000);
+        sleep(9000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.driveFrontL.setTargetPosition((int)moveRight);
-        robot.driveFrontR.setTargetPosition((int)-moveRight);
-        robot.driveRearL.setTargetPosition((int)moveRight);
-        robot.driveRearR.setTargetPosition((int)-moveRight);
-        robot.driveFrontL.setPower(.5);
-        robot.driveFrontR.setPower(-.5);
-        robot.driveRearL.setPower(.5);
-        robot.driveRearR.setPower(-.5);
+        //robot.driveInches(40);
+        //robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        //sleep(5000);
+        //robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.grabberFront.setPosition(0);
+        sleep(1000);
+
+        robot.strafeInR(20);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
-        robot.gripper.setPosition(1);
-        sleep(2000);
+        sleep(3000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.driveFrontL.setTargetPosition((int)-MoveBack);
-        robot.driveFrontR.setTargetPosition((int)-MoveBack);
-        robot.driveRearL.setTargetPosition((int)-MoveBack);
-        robot.driveRearR.setTargetPosition((int)-MoveBack);
-        robot.driveFrontL.setPower(-.5);
-        robot.driveFrontR.setPower(-.5);
-        robot.driveRearL.setPower(-.5);
-        robot.driveRearR.setPower(-.5);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
 
     }
-
 
 }
