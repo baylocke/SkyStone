@@ -98,6 +98,13 @@ public class MainTeleop extends OpMode
             robot.grabberFront.setPosition(0);
         }
 
+        if (gamepad1.b){
+            robot.gripper.setPosition(0.0);
+        }
+        else if (gamepad1.x){
+            robot.gripper.setPosition(1.0);
+        }
+
      /*   if(gamepad1.x) {
             robot.grabberSideR.setPosition(0);
             robot.grabberSideL.setPosition(0);

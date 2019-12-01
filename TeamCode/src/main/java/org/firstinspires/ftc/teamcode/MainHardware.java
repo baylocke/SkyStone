@@ -183,6 +183,7 @@ public class MainHardware {
         }
 
         turn(0);
+        setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     public void turn (double power) {
