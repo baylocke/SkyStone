@@ -49,7 +49,7 @@ public class SimpleForward extends LinearOpMode
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(5000);
 
-        robot.driveInches(5);
+        robot.driveInches(4);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(5000);
     }
