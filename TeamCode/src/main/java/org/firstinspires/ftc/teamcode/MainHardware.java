@@ -155,7 +155,7 @@ public class MainHardware {
         double lastAngle = originalAngle;
 
         if (degrees > 0){
-            while (degrees > deltaAngle+2.5){
+            while (degrees > deltaAngle+10){
 
                 if(deltaAngle < -1){
                     angleAdd = 360;
@@ -164,12 +164,11 @@ public class MainHardware {
                 deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle + angleAdd;
 
                 turn(-.6*2*(degrees-deltaAngle)/degrees);
-                lastAngle = gyro.imu.getAngularOrientation().firstAngle;
             }
         }
 
         else if (degrees < 0){
-            while (degrees<deltaAngle){
+            while (degrees < deltaAngle-10){
 
                 if (deltaAngle > 1){
                     angleAdd = 360;
@@ -178,7 +177,6 @@ public class MainHardware {
                 deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle - angleAdd;
 
                 turn(.6*2*(degrees-deltaAngle)/degrees);
-                lastAngle = gyro.imu.getAngularOrientation().firstAngle;
             }
         }
 

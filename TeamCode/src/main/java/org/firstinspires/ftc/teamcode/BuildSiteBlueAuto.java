@@ -42,27 +42,67 @@ public class BuildSiteBlueAuto extends LinearOpMode
 
         waitForStart();
 
-        robot.gripper.setPosition(1);
-        sleep(2000);
-
-        robot.strafeInL(42);
+        robot.strafeInL(25);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
+        sleep(3000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.gripper.setPosition(0);
-        sleep(2000);
-
-        robot.strafeInR(60);
+        robot.driveInches(-10);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
+        sleep(3000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.gripper.setPosition(1);
-        sleep(2000);
-
-        robot.driveInches(45);
+        robot.driveInches(32);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(4000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.liftL.setPower(.5);
+        robot.liftR.setPower(.5);
+        sleep(1000);
+        robot.liftL.setPower(0);
+        robot.liftR.setPower(0);
+
+        robot.driveInches(2);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(1000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.liftL.setPower(-.5);
+        robot.liftR.setPower(-.5);
+        sleep(1100);
+        robot.liftL.setPower(0);
+        robot.liftR.setPower(0);
+
+        robot.driveInches(-37);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(4000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.liftL.setPower(.5);
+        robot.liftR.setPower(.5);
+        sleep(1000);
+        robot.liftL.setPower(0);
+        robot.liftR.setPower(0);
+
+        robot.strafeInR(50);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(4000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.turnDegrees(-95);
+        sleep(2000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.liftL.setPower(-.5);
+        robot.liftR.setPower(-.5);
+        sleep(1200);
+        robot.liftL.setPower(0);
+        robot.liftR.setPower(0);
+
+        robot.driveInches(20);
+        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(5000);
     }
 
 
