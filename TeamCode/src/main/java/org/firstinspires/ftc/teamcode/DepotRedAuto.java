@@ -45,31 +45,17 @@ public class DepotRedAuto extends LinearOpMode
 
         waitForStart();
 
-        robot.driveInches(31);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
-        robot.grabberFront.setPosition(1);
-        sleep(2000);
-        robot.driveInches(-4);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        //robot.turnDegrees(-90);
-        //sleep(4000);
-        //robot.driveInches(40);
-        //robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        //sleep(5000);
-        robot.strafeInR(45);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.colorSensor.enableLed(true);
 
-        robot.grabberFront.setPosition(0);
-        sleep(2000);
-
-        robot.strafeInL(10);
+        robot.driveInches(5);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(5000);
+        sleep(3000);
+
+        if(robot.colorSensor.red() >= 10 ){
+            robot.driveInches(-10);
+            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+            sleep(5000);
+        }
     }
 
 }
