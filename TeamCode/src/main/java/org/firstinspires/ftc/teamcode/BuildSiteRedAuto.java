@@ -42,14 +42,14 @@ public class BuildSiteRedAuto extends LinearOpMode
 
         waitForStart();
 
-        robot.strafeInR(25);
+        robot.strafeInR(15);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(3000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.driveInches(-10);
+        robot.driveInches(-5);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(3000);
+        sleep(2000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.driveInches(32);
@@ -85,7 +85,7 @@ public class BuildSiteRedAuto extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeInL(50);
+        robot.strafeInL(40);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(4000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -100,7 +100,7 @@ public class BuildSiteRedAuto extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.driveInches(20);
+        robot.driveInches(15);
         robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(5000);
 
