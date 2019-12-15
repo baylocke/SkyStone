@@ -88,11 +88,11 @@ public class MainTeleop extends OpMode
     public void loop() {
         robot.drive360(gamepad1.left_stick_x, -gamepad1.left_stick_y, gamepad1.right_stick_x);
 
-        if (gamepad1.a){
+        if (gamepad1.y){
             robot.liftL.setPower(1);
             robot.liftR.setPower(1);
         }
-        else if (gamepad1.b){
+        else if (gamepad1.a){
             robot.liftL.setPower(-1);
             robot.liftR.setPower(-1);
         }
@@ -111,7 +111,7 @@ public class MainTeleop extends OpMode
         if (gamepad1.x){
             robot.gripper.setPosition(0.0);
         }
-        else if (gamepad1.y){
+        else if (gamepad1.b){
             robot.gripper.setPosition(1.0);
         }
 

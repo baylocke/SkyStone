@@ -79,6 +79,38 @@ public class MainHardware {
         driveRearL.setPower(.4);
         driveRearR.setPower(.4);
     }
+    public void driveInchesMORE(double numInches) {
+        double ticPerInch40 = 66.85;
+        //double ticPerInch402 = 89.127;
+        //double ticPerInch40 = 1.0;
+        double inches = numInches;
+
+        driveFrontL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveFrontR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+
+        driveFrontL.setPower(.9);
+        driveFrontR.setPower(.9);
+        driveRearL.setPower(.9);
+        driveRearR.setPower(.9);
+    }
+    public void driveInchesMOREMORE(double numInches) {
+        double ticPerInch40 = 66.85;
+        //double ticPerInch402 = 89.127;
+        //double ticPerInch40 = 1.0;
+        double inches = numInches;
+
+        driveFrontL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveFrontR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+
+        driveFrontL.setPower(1);
+        driveFrontR.setPower(1);
+        driveRearL.setPower(1);
+        driveRearR.setPower(1);
+    }
     public void drive360(double x, double y, double turn) {
         driveRearR.setPower(y + x - 2*turn);
         driveFrontR.setPower(y - x - 2*turn);
