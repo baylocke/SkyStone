@@ -112,10 +112,10 @@ public class MainHardware {
         driveRearR.setPower(1);
     }
     public void drive360(double x, double y, double turn) {
-        driveRearR.setPower(y + x - 2*turn);
-        driveFrontR.setPower(y - x - 2*turn);
-        driveRearL.setPower(y - x + 2*turn);
-        driveFrontL.setPower(y + x + 2*turn);
+        driveRearR.setPower(y + x - turn);
+        driveFrontR.setPower(y - x - turn);
+        driveRearL.setPower(y - x + turn);
+        driveFrontL.setPower(y + x + turn);
     }
 
     public int RGBtoHSV(int rVal, int gVal, int bVal){

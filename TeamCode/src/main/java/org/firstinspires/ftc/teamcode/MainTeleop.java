@@ -102,7 +102,7 @@ public class MainTeleop extends OpMode
         }
 
         if(gamepad1.left_trigger>.5) {
-            robot.grabberFront.setPosition(.8);
+            robot.grabberFront.setPosition(.85);
         }
         else if (gamepad1.right_trigger>.5){
             robot.grabberFront.setPosition(0);

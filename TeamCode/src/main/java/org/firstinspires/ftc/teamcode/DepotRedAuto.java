@@ -90,8 +90,8 @@ public class DepotRedAuto extends LinearOpMode
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.grabberFront.setPosition(.8);
-            sleep(500);
+            robot.grabberFront.setPosition(.85);
+            sleep(800);
 
             robot.driveInchesMORE(-7);
             robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -124,8 +124,8 @@ public class DepotRedAuto extends LinearOpMode
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.grabberFront.setPosition(.8);
-            sleep(500);
+            robot.grabberFront.setPosition(.85);
+            sleep(800);
 
             robot.driveInchesMORE(-10);
             robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
@@ -176,7 +176,7 @@ public class DepotRedAuto extends LinearOpMode
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.grabberFront.setPosition(.8);
+                robot.grabberFront.setPosition(.85);
                 sleep(500);
 
                 robot.driveInchesMORE(-7);
@@ -210,7 +210,7 @@ public class DepotRedAuto extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.grabberFront.setPosition(.8);
+                robot.grabberFront.setPosition(.85);
                 sleep(500);
 
                 robot.driveInchesMORE(-11);
@@ -258,7 +258,7 @@ public class DepotRedAuto extends LinearOpMode
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.grabberFront.setPosition(.8);
+                robot.grabberFront.setPosition(.85);
                 sleep(500);
 
                 robot.driveInchesMORE(-9);
@@ -292,7 +292,7 @@ public class DepotRedAuto extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.grabberFront.setPosition(.8);
+                robot.grabberFront.setPosition(.85);
                 sleep(500);
 
                 robot.driveInchesMORE(-9);
