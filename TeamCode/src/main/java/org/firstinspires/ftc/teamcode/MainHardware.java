@@ -111,6 +111,22 @@ public class MainHardware {
         driveRearL.setPower(1);
         driveRearR.setPower(1);
     }
+    public void driveInchesLESS(double numInches) {
+        double ticPerInch40 = 66.85;
+        //double ticPerInch402 = 89.127;
+        //double ticPerInch40 = 1.0;
+        double inches = numInches;
+
+        driveFrontL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveFrontR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearL.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+        driveRearR.setTargetPosition((int) (ticPerInch40 * inches + 0.5));
+
+        driveFrontL.setPower(.6);
+        driveFrontR.setPower(.6);
+        driveRearL.setPower(.6);
+        driveRearR.setPower(.6);
+    }
     public void drive360(double x, double y, double turn) {
         driveRearR.setPower(y + x - turn);
         driveFrontR.setPower(y - x - turn);
@@ -176,18 +192,15 @@ public class MainHardware {
         driveRearR.setPower(.4);
     }
 
-
-
     public void turnDegrees (int degrees){
         double originalAngle = gyro.imu.getAngularOrientation().firstAngle;
         double deltaAngle = 0.0;
-        double targetAngle = originalAngle + degrees;
-
         double angleAdd = 0.0;
-        double lastAngle = originalAngle;
+
+        double power = 1.0;
 
         if (degrees > 0){
-            while (degrees > deltaAngle+10){
+            while (degrees > deltaAngle+10  && Math.abs(power)>.2){
 
                 if(deltaAngle < -1){
                     angleAdd = 360;
@@ -195,12 +208,14 @@ public class MainHardware {
 
                 deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle + angleAdd;
 
-                turn(-.6*2*(degrees-deltaAngle)/degrees);
+                power = -.6*2*(degrees-deltaAngle)/degrees;
+
+                turn(power);
             }
         }
 
         else if (degrees < 0){
-            while (degrees < deltaAngle-10){
+            while (degrees < deltaAngle-10 && Math.abs(power)>.2){
 
                 if (deltaAngle > 1){
                     angleAdd = 360;
@@ -208,7 +223,9 @@ public class MainHardware {
 
                 deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle - angleAdd;
 
-                turn(.6*2*(degrees-deltaAngle)/degrees);
+                power = .6*2*(degrees-deltaAngle)/degrees;
+
+                turn(power);
             }
         }
 
