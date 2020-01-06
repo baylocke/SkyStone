@@ -23,7 +23,7 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="BuildSiteRedAuto", group="Linear Opmode")
+@Autonomous(name="FoundationRedAuto", group="Linear Opmode")
 public class BuildSiteRedAuto extends LinearOpMode
 {
     // Declare OpMode members.

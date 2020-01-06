@@ -24,8 +24,8 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="NewRedAuto", group="Linear Opmode")
-public class NewRedAuto extends LinearOpMode
+@Autonomous(name="zStoneRedAutoONE", group="Linear Opmode")
+public class StoneRedAutoONE extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -91,7 +91,7 @@ public class NewRedAuto extends LinearOpMode
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.grabberFront.setPosition(.85);
-            sleep(800);
+            sleep(1000);
 
             robot.liftL.setPower(.5);
             robot.liftR.setPower(.5);
@@ -104,67 +104,26 @@ public class NewRedAuto extends LinearOpMode
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegrees(-103);
+            robot.turnDegrees(-98);
+            sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.driveInchesMORE(82);
+            robot.driveInchesMORE(55);
             robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.liftL.setPower(.5);
-            robot.liftR.setPower(.5);
-            sleep(1000);
-            robot.liftL.setPower(0);
-            robot.liftR.setPower(0);
-
-            robot.turnDegrees(110);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.driveInchesMORE(9);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(900);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.liftL.setPower(-.5);
-            robot.liftR.setPower(-.5);
-            sleep(1000);
-            robot.liftL.setPower(0);
-            robot.liftR.setPower(0);
-
             robot.grabberFront.setPosition(0);
             sleep(1000);
 
-            robot.liftL.setPower(.5);
-            robot.liftR.setPower(.5);
-            sleep(500);
-            robot.liftL.setPower(0);
-            robot.liftR.setPower(0);
-
-            robot.strafeInR(15);
+            robot.driveInchesMORE(-15);
             robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(1500);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.driveInchesMORE(3);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(500);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.liftL.setPower(-.5);
-            robot.liftR.setPower(-.5);
-            sleep(1100);
-            robot.liftL.setPower(0);
-            robot.liftR.setPower(0);
-
-            robot.driveInchesLESS(-40);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(5000);
+            sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         }
 
         else {
-            robot.strafeInR(13);
+            robot.strafeInR(17);
             robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -190,7 +149,7 @@ public class NewRedAuto extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(.85);
-                sleep(500);
+                sleep(1000);
 
                 robot.liftL.setPower(.5);
                 robot.liftR.setPower(.5);
@@ -203,62 +162,21 @@ public class NewRedAuto extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(-103);
+                robot.turnDegrees(-98);
+                sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(79);
+                robot.driveInchesMORE(47);
                 robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(3000);
+                sleep(1800);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.liftL.setPower(.5);
-                robot.liftR.setPower(.5);
-                sleep(1000);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
-
-                robot.turnDegrees(110);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.driveInchesMORE(9);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(900);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.liftL.setPower(-.5);
-                robot.liftR.setPower(-.5);
-                sleep(1000);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
 
                 robot.grabberFront.setPosition(0);
+                sleep(500);
+
+                robot.driveInchesMORE(-15);
+                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1000);
-
-                robot.liftL.setPower(.5);
-                robot.liftR.setPower(.5);
-                sleep(500);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
-
-                robot.strafeInR(15);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(1500);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.driveInchesMORE(3);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(500);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.liftL.setPower(-.5);
-                robot.liftR.setPower(-.5);
-                sleep(1100);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
-
-                robot.driveInchesLESS(-40);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(5000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
@@ -285,7 +203,7 @@ public class NewRedAuto extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(.85);
-                sleep(500);
+                sleep(1000);
 
                 robot.liftL.setPower(.5);
                 robot.liftR.setPower(.5);
@@ -298,62 +216,21 @@ public class NewRedAuto extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(-103);
+                robot.turnDegrees(-98);
+                sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(71);
+                robot.driveInchesMORE(43);
                 robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(3000);
+                sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.liftL.setPower(.5);
-                robot.liftR.setPower(.5);
-                sleep(1000);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
-
-                robot.turnDegrees(110);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.driveInchesMORE(9);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(900);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.liftL.setPower(-.5);
-                robot.liftR.setPower(-.5);
-                sleep(1000);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
 
                 robot.grabberFront.setPosition(0);
+                sleep(500);
+
+                robot.driveInchesMORE(-15);
+                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1000);
-
-                robot.liftL.setPower(.5);
-                robot.liftR.setPower(.5);
-                sleep(500);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
-
-                robot.strafeInR(15);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(1500);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.driveInchesMORE(3);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(500);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.liftL.setPower(-.5);
-                robot.liftR.setPower(-.5);
-                sleep(1100);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
-
-                robot.driveInchesLESS(-40);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(5000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
         }

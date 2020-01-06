@@ -25,7 +25,7 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="DepotBlueAuto", group="Linear Opmode")
+@Autonomous(name="StoneBlueAuto", group="Linear Opmode")
 public class DepoBlueAuto extends LinearOpMode
 {
     // Declare OpMode members.

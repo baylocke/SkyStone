@@ -122,7 +122,7 @@ public class NewBlueAuto extends LinearOpMode
 
             robot.driveInchesMORE(10);
             robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(900);
+            sleep(1200);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.liftL.setPower(-.5);
