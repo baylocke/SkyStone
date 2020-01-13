@@ -109,7 +109,7 @@ public class StoneBlueAutoONE extends LinearOpMode
             sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.driveInchesMORE(55);
+            robot.driveInchesMORE(60);
             robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -168,7 +168,7 @@ public class StoneBlueAutoONE extends LinearOpMode
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(47);
+                robot.driveInchesMORE(55);
                 robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1800);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -187,14 +187,14 @@ public class StoneBlueAutoONE extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.strafeInL(10);
+                robot.strafeInL(15);
                 robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(-1);
+                robot.driveInchesMORE(-3);
                 robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(500);
+                sleep(900);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(-.5);
@@ -227,7 +227,7 @@ public class StoneBlueAutoONE extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(43);
+                robot.driveInchesMORE(50);
                 robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
