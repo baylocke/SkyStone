@@ -78,6 +78,8 @@ public class MainHardware {
         driveFrontR.setPower(.4);
         driveRearL.setPower(.4);
         driveRearR.setPower(.4);
+
+        setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
     public void driveInchesMORE(double numInches) {
         double ticPerInch40 = 66.85;
@@ -94,6 +96,8 @@ public class MainHardware {
         driveFrontR.setPower(.9);
         driveRearL.setPower(.9);
         driveRearR.setPower(.9);
+
+        setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
     public void driveInchesMOREMORE(double numInches) {
         double ticPerInch40 = 66.85;
@@ -110,6 +114,8 @@ public class MainHardware {
         driveFrontR.setPower(1);
         driveRearL.setPower(1);
         driveRearR.setPower(1);
+
+        setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
     public void driveInchesLESS(double numInches) {
         double ticPerInch40 = 66.85;
@@ -126,6 +132,8 @@ public class MainHardware {
         driveFrontR.setPower(.6);
         driveRearL.setPower(.6);
         driveRearR.setPower(.6);
+
+        setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
     public void drive360(double x, double y, double turn) {
         driveRearR.setPower(y + x - turn);
@@ -177,6 +185,8 @@ public class MainHardware {
         driveFrontR.setPower(.4);
         driveRearL.setPower(.4);
         driveRearR.setPower(.4);
+
+        setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
     public void strafeInL(double numInches){
@@ -190,6 +200,8 @@ public class MainHardware {
         driveFrontR.setPower(.4);
         driveRearL.setPower(.4);
         driveRearR.setPower(.4);
+
+        setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
     public void turnDegrees (int degrees){

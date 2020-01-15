@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Color;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -24,8 +25,8 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="zStoneRedAutoONE", group="Linear Opmode")
-public class StoneRedAutoONE extends LinearOpMode
+@Autonomous(name="StoneBlueAuto", group="Linear Opmode")
+public class StoneBlueAuto extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -59,11 +60,11 @@ public class StoneRedAutoONE extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeInL(4);
-        sleep(500);
+        robot.strafeInR(8);
+        sleep(1500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.driveInches(31);
+        robot.driveInches(32);
         sleep(2500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -87,24 +88,48 @@ public class StoneRedAutoONE extends LinearOpMode
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.grabberFront.setPosition(.85);
-            sleep(1000);
-
-            robot.liftL.setPower(.5);
-            robot.liftR.setPower(.5);
-            sleep(200);
-            robot.liftL.setPower(0);
-            robot.liftR.setPower(0);
+            sleep(500);
 
             robot.driveInchesMORE(-7);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegrees(-98);
+            robot.turnDegrees(98);
             sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.driveInchesMORE(55);
             sleep(3000);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.grabberFront.setPosition(0);
+            sleep(1000);
+
+            robot.driveInchesMORE(-35);
+            sleep(2500);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.turnDegrees(-95);
+            sleep(300);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.driveInchesMORE(5);
+            sleep(500);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.grabberFront.setPosition(.85);
+            sleep(500);
+
+            robot.driveInchesMORE(-10);
+            sleep(1000);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.turnDegrees(95);
+            sleep(300);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.driveInchesMORE(45);
+            sleep(2500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.grabberFront.setPosition(0);
@@ -116,7 +141,11 @@ public class StoneRedAutoONE extends LinearOpMode
         }
 
         else {
-            robot.strafeInR(17);
+            /*robot.driveInchesMORE(-1);
+            sleep(500);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER); */
+
+            robot.strafeInL(17);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -139,19 +168,13 @@ public class StoneRedAutoONE extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(.85);
-                sleep(1000);
-
-                robot.liftL.setPower(.5);
-                robot.liftR.setPower(.5);
-                sleep(200);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
+                sleep(500);
 
                 robot.driveInchesMORE(-7);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(-98);
+                robot.turnDegrees(98);
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -162,16 +185,50 @@ public class StoneRedAutoONE extends LinearOpMode
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
+                robot.driveInchesMORE(-75);
+                sleep(3000);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.turnDegrees(-95);
+                sleep(300);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.driveInchesMORE(7);
+                sleep(500);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.grabberFront.setPosition(.85);
+                sleep(500);
+
+                robot.driveInchesMORE(-11);
+                sleep(800);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.turnDegrees(95);
+                sleep(300);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.driveInchesMORE(89);
+                sleep(2250);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.grabberFront.setPosition(0);
+                sleep(500);
+
                 robot.driveInchesMORE(-15);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
-                robot.strafeInR(10);
-                sleep(2000);
+                robot.driveInchesMORE(-1);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(-2);
+                robot.strafeInL(10);
+                sleep(2500);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.driveInchesMORE(-1);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -187,20 +244,14 @@ public class StoneRedAutoONE extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(.85);
-                sleep(1000);
-
-                robot.liftL.setPower(.5);
-                robot.liftR.setPower(.5);
-                sleep(200);
-                robot.liftL.setPower(0);
-                robot.liftR.setPower(0);
+                sleep(500);
 
                 robot.driveInchesMORE(-9);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(-98);
-                sleep(300);
+                robot.turnDegrees(98);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(43);
@@ -210,11 +261,42 @@ public class StoneRedAutoONE extends LinearOpMode
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
+                robot.driveInchesMORE(-66);
+                sleep(2700);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.turnDegrees(-95);
+                sleep(300);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.driveInchesMORE(9);
+                sleep(500);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.grabberFront.setPosition(.85);
+                sleep(500);
+
+                robot.driveInchesMORE(-4);
+                sleep(350);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.turnDegrees(98);
+                sleep(300);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.driveInchesMORE(65);
+                sleep(2500);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.grabberFront.setPosition(0);
+                sleep(300);
+
                 robot.driveInchesMORE(-15);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
         }
+
     }
 
 }

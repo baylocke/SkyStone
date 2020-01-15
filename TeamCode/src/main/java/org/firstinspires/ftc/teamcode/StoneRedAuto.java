@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Color;
-
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -25,8 +24,8 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="StoneBlueAuto", group="Linear Opmode")
-public class DepoBlueAuto extends LinearOpMode
+@Autonomous(name="StoneRedAuto", group="Linear Opmode")
+public class StoneRedAuto extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -60,13 +59,11 @@ public class DepoBlueAuto extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeInR(8);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(1500);
+        robot.strafeInL(4);
+        sleep(500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.driveInches(32);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.driveInches(31);
         sleep(2500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -75,7 +72,6 @@ public class DepoBlueAuto extends LinearOpMode
         Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
         if (hsvValues[0] < 10 || hsvValues[0] > 45) {
             robot.driveInchesMORE(-3);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -87,24 +83,21 @@ public class DepoBlueAuto extends LinearOpMode
 
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             robot.driveInchesMORE(4);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.grabberFront.setPosition(.85);
-            sleep(500);
+            sleep(800);
 
             robot.driveInchesMORE(-7);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegrees(98);
+            robot.turnDegrees(-98);
             sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.driveInchesMORE(55);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -112,53 +105,42 @@ public class DepoBlueAuto extends LinearOpMode
             sleep(1000);
 
             robot.driveInchesMORE(-35);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(2500);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.turnDegrees(-95);
-            sleep(300);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.driveInchesMORE(5);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(500);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.grabberFront.setPosition(.85);
-            sleep(500);
-
-            robot.driveInchesMORE(-10);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.turnDegrees(95);
             sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.driveInchesMORE(45);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(2500);
+            robot.driveInchesMORE(5);
+            sleep(500);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.grabberFront.setPosition(.85);
+            sleep(800);
+
+            robot.driveInchesMORE(-10);
+            sleep(1000);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.turnDegrees(-95);
+            sleep(300);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.driveInchesMOREMORE(45);
+            sleep(2300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.grabberFront.setPosition(0);
             sleep(1000);
 
             robot.driveInchesMORE(-15);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         }
 
         else {
-            /*robot.driveInchesMORE(-1);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(500);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER); */
-
-            robot.strafeInL(17);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.strafeInR(17);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -166,7 +148,6 @@ public class DepoBlueAuto extends LinearOpMode
             Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
             if (hsvValues[0] < 10 || hsvValues[0] > 45) {
                 robot.driveInchesMORE(-3);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -178,7 +159,6 @@ public class DepoBlueAuto extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(4);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -186,16 +166,14 @@ public class DepoBlueAuto extends LinearOpMode
                 sleep(500);
 
                 robot.driveInchesMORE(-7);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(98);
+                robot.turnDegrees(-98);
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(47);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1800);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -203,16 +181,14 @@ public class DepoBlueAuto extends LinearOpMode
                 sleep(500);
 
                 robot.driveInchesMORE(-75);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(3000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(-95);
+                robot.turnDegrees(95);
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(7);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -220,40 +196,30 @@ public class DepoBlueAuto extends LinearOpMode
                 sleep(500);
 
                 robot.driveInchesMORE(-11);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(800);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(95);
+                robot.turnDegrees(-95);
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(89);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(2250);
+                robot.driveInchesMOREMORE(89);
+                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
                 robot.driveInchesMORE(-15);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
-                robot.driveInchesMORE(-1);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(500);
+                robot.strafeInR(10);
+                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.strafeInL(10);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(2500);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.driveInchesMORE(-1);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+                robot.driveInchesMORE(-2);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -265,7 +231,6 @@ public class DepoBlueAuto extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(4);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -273,63 +238,55 @@ public class DepoBlueAuto extends LinearOpMode
                 sleep(500);
 
                 robot.driveInchesMORE(-9);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(98);
-                sleep(500);
+                robot.turnDegrees(-98);
+                sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(43);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
-                robot.driveInchesMORE(-66);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(2700);
+                robot.driveInchesMOREMORE(-66);
+                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(-95);
+                robot.turnDegrees(95);
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(9);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(.85);
                 sleep(500);
 
-                robot.driveInchesMORE(-4);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(350);
+                robot.driveInchesMORE(-9);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(98);
-                sleep(300);
+                robot.turnDegrees(-98);
+                sleep(100);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(65);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-                sleep(2500);
+                robot.driveInchesMOREMORE(65);
+                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(0);
                 sleep(300);
 
                 robot.driveInchesMORE(-15);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
         }
-
     }
 
 }

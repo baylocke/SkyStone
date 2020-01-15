@@ -61,12 +61,10 @@ public class StoneBlueAutoONE extends LinearOpMode
         robot.liftR.setPower(0);
 
         robot.strafeInR(8);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(1500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.driveInches(32);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(2500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -75,7 +73,6 @@ public class StoneBlueAutoONE extends LinearOpMode
         Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
         if (hsvValues[0] < 10 || hsvValues[0] > 45) {
             robot.driveInchesMORE(-3);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -87,7 +84,6 @@ public class StoneBlueAutoONE extends LinearOpMode
 
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             robot.driveInchesMORE(4);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -101,7 +97,6 @@ public class StoneBlueAutoONE extends LinearOpMode
             robot.liftR.setPower(0);
 
             robot.driveInchesMORE(-50);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(4000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -110,7 +105,6 @@ public class StoneBlueAutoONE extends LinearOpMode
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.driveInchesMORE(60);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -118,7 +112,6 @@ public class StoneBlueAutoONE extends LinearOpMode
             sleep(1000);
 
             robot.driveInchesMORE(-15);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         }
@@ -126,7 +119,6 @@ public class StoneBlueAutoONE extends LinearOpMode
         else {
 
             robot.strafeInL(14);
-            robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -134,7 +126,6 @@ public class StoneBlueAutoONE extends LinearOpMode
             Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
             if (hsvValues[0] < 10 || hsvValues[0] > 45) {
                 robot.driveInchesMORE(-3);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -146,7 +137,6 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(4);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -160,7 +150,6 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.liftR.setPower(0);
 
                 robot.driveInchesMORE(-50);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(4000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -169,7 +158,6 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(55);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1800);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -177,23 +165,19 @@ public class StoneBlueAutoONE extends LinearOpMode
                 sleep(500);
 
                 robot.driveInchesMORE(-15);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
                 robot.driveInchesMORE(-1);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.strafeInL(15);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(-3);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(900);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -205,7 +189,6 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(4);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -219,7 +202,6 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.liftR.setPower(0);
 
                 robot.driveInchesMORE(-50);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(4000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -228,7 +210,6 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(50);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -236,7 +217,6 @@ public class StoneBlueAutoONE extends LinearOpMode
                 sleep(500);
 
                 robot.driveInchesMORE(-15);
-                robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }

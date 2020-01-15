@@ -24,7 +24,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @Autonomous(name="FoundationRedAuto", group="Linear Opmode")
-public class BuildSiteRedAuto extends LinearOpMode
+public class FoundationRedAuto extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -43,18 +43,15 @@ public class BuildSiteRedAuto extends LinearOpMode
         waitForStart();
 
         robot.strafeInR(15);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        sleep(2500);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.driveInches(-2);
+        sleep(1000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.driveInchesMORE(32);
         sleep(3000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.driveInches(-5);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(2000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.driveInches(32);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(4000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.liftL.setPower(.5);
@@ -64,7 +61,6 @@ public class BuildSiteRedAuto extends LinearOpMode
         robot.liftR.setPower(0);
 
         robot.driveInches(2);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(1000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -74,9 +70,8 @@ public class BuildSiteRedAuto extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.driveInches(-37);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
-        sleep(4000);
+        robot.driveInchesMORE(-37);
+        sleep(3000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.liftL.setPower(.5);
@@ -86,12 +81,10 @@ public class BuildSiteRedAuto extends LinearOpMode
         robot.liftR.setPower(0);
 
         robot.strafeInL(40);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
         sleep(4000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.turnDegrees(95);
-        sleep(2000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.liftL.setPower(-.5);
@@ -100,8 +93,7 @@ public class BuildSiteRedAuto extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.driveInches(15);
-        robot.setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.driveInches(25);
         sleep(5000);
 
     }
