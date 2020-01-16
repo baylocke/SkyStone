@@ -122,6 +122,10 @@ public class StoneBlueAutoONE extends LinearOpMode
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
+            robot.driveInchesMORE(-1.7);
+            sleep(500);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
             sleep(500);
             Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
             if (hsvValues[0] < 10 || hsvValues[0] > 45) {
@@ -169,16 +173,12 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
-                robot.driveInchesMORE(-1);
+                robot.driveInchesMORE(-5);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.strafeInL(15);
-                sleep(2500);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.driveInchesMORE(-3);
-                sleep(900);
+                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(-.5);
@@ -188,7 +188,7 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.liftR.setPower(0);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(4);
+                robot.driveInchesMORE(6);
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 

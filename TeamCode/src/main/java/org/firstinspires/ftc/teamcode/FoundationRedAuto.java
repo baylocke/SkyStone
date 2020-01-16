@@ -46,12 +46,8 @@ public class FoundationRedAuto extends LinearOpMode
         sleep(2500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.driveInches(-2);
-        sleep(1000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.driveInchesMORE(32);
-        sleep(3000);
+        robot.driveInches(32);
+        sleep(4000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.liftL.setPower(.5);
@@ -71,7 +67,7 @@ public class FoundationRedAuto extends LinearOpMode
         robot.liftR.setPower(0);
 
         robot.driveInchesMORE(-37);
-        sleep(3000);
+        sleep(6000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.liftL.setPower(.5);
