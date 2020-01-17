@@ -64,7 +64,7 @@ public class StoneBlueAutoONE extends LinearOpMode
         sleep(1500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.driveInches(32);
+        robot.driveInches(31);
         sleep(2500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -168,7 +168,7 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
-                robot.driveInchesMORE(-15);
+                robot.driveInchesMORE(-20);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
