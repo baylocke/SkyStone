@@ -25,8 +25,8 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="zStoneBlueAutoONE", group="Linear Opmode")
-public class StoneBlueAutoONE extends LinearOpMode
+@Autonomous(name="zStoneBlueAutoONEmid", group="Linear Opmode")
+public class StoneBlueAutoONEmid extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -60,7 +60,7 @@ public class StoneBlueAutoONE extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeInR(8);
+        robot.strafeInR(7);
         sleep(1500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -96,8 +96,8 @@ public class StoneBlueAutoONE extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.driveInchesMORE(-50);
-            sleep(4000);
+            robot.driveInchesMORE(-6);
+            sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.turnDegrees(98);
@@ -120,10 +120,6 @@ public class StoneBlueAutoONE extends LinearOpMode
 
             robot.strafeInL(14);
             sleep(1000);
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            robot.driveInchesMORE(-1.7);
-            sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             sleep(500);
@@ -153,8 +149,8 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-50);
-                sleep(4000);
+                robot.driveInchesMORE(-6);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.turnDegrees(98);
@@ -201,8 +197,8 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-50);
-                sleep(4000);
+                robot.driveInchesMORE(-6);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.turnDegrees(98);
@@ -216,7 +212,7 @@ public class StoneBlueAutoONE extends LinearOpMode
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
-                robot.driveInchesMORE(-15);
+                robot.driveInchesMORE(-23);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }

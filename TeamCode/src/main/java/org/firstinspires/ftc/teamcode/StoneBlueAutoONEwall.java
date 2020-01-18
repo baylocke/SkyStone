@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Color;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -24,8 +25,8 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="zStoneRedAutoONE", group="Linear Opmode")
-public class StoneRedAutoONE extends LinearOpMode
+@Autonomous(name="zStoneBlueAutoONEwall", group="Linear Opmode")
+public class StoneBlueAutoONEwall extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -59,8 +60,8 @@ public class StoneRedAutoONE extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeInL(4);
-        sleep(500);
+        robot.strafeInR(7);
+        sleep(1500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.driveInches(31);
@@ -87,7 +88,7 @@ public class StoneRedAutoONE extends LinearOpMode
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.grabberFront.setPosition(.85);
-            sleep(1000);
+            sleep(500);
 
             robot.liftL.setPower(.5);
             robot.liftR.setPower(.5);
@@ -95,15 +96,15 @@ public class StoneRedAutoONE extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.driveInchesMORE(-7);
-            sleep(500);
+            robot.driveInchesMORE(-50);
+            sleep(4000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegrees(-98);
+            robot.turnDegrees(98);
             sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.driveInchesMORE(55);
+            robot.driveInchesMORE(60);
             sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -116,7 +117,8 @@ public class StoneRedAutoONE extends LinearOpMode
         }
 
         else {
-            robot.strafeInR(17);
+
+            robot.strafeInL(14);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -139,7 +141,7 @@ public class StoneRedAutoONE extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(.85);
-                sleep(1000);
+                sleep(500);
 
                 robot.liftL.setPower(.5);
                 robot.liftR.setPower(.5);
@@ -147,32 +149,32 @@ public class StoneRedAutoONE extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-7);
-                sleep(500);
+                robot.driveInchesMORE(-50);
+                sleep(4000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(-98);
+                robot.turnDegrees(98);
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(47);
+                robot.driveInchesMORE(55);
                 sleep(1800);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
-                robot.driveInchesMORE(-15);
+                robot.driveInchesMORE(-20);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
-                robot.strafeInR(10);
-                sleep(2000);
+                robot.driveInchesMORE(-5);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(-2);
-                sleep(500);
+                robot.strafeInL(15);
+                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(-.5);
@@ -182,12 +184,12 @@ public class StoneRedAutoONE extends LinearOpMode
                 robot.liftR.setPower(0);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(4);
+                robot.driveInchesMORE(6);
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(.85);
-                sleep(1000);
+                sleep(500);
 
                 robot.liftL.setPower(.5);
                 robot.liftR.setPower(.5);
@@ -195,26 +197,27 @@ public class StoneRedAutoONE extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-9);
+                robot.driveInchesMORE(-50);
+                sleep(4000);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.turnDegrees(98);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegrees(-98);
-                sleep(300);
-                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-                robot.driveInchesMORE(43);
+                robot.driveInchesMORE(50);
                 sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
-                robot.driveInchesMORE(-15);
+                robot.driveInchesMORE(-23);
                 sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
         }
+
     }
 
 }
