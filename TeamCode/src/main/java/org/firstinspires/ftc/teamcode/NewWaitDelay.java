@@ -35,6 +35,10 @@ public class NewWaitDelay extends LinearOpMode
      */
     @Override
     public void runOpMode() {
+
+        telemetry.addData("PLAYING", true);
+        telemetry.update();
+
         robot.init(hardwareMap);
         runtime.reset();
 
@@ -42,58 +46,9 @@ public class NewWaitDelay extends LinearOpMode
 
         waitForStart();
 
-        sleep(6000);
-
-        robot.strafeInR(15);
-        sleep(2500);
+        robot.driveInchesTry(50);
+        sleep(10000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.driveInches(32);
-        sleep(4000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.liftL.setPower(.5);
-        robot.liftR.setPower(.5);
-        sleep(1000);
-        robot.liftL.setPower(0);
-        robot.liftR.setPower(0);
-
-        robot.driveInches(2);
-        sleep(1000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.liftL.setPower(-.5);
-        robot.liftR.setPower(-.5);
-        sleep(1100);
-        robot.liftL.setPower(0);
-        robot.liftR.setPower(0);
-
-        robot.driveInchesMORE(-45);
-        sleep(5000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.liftL.setPower(.5);
-        robot.liftR.setPower(.5);
-        sleep(1000);
-        robot.liftL.setPower(0);
-        robot.liftR.setPower(0);
-
-        robot.strafeInL(45);
-        sleep(4000);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.turnDegrees(95);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.liftL.setPower(-.5);
-        robot.liftR.setPower(-.5);
-        sleep(1200);
-        robot.liftL.setPower(0);
-        robot.liftR.setPower(0);
-
-        robot.driveInchesMORE(25);
-        sleep(5000);
-
     }
 
 

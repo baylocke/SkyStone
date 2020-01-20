@@ -81,6 +81,31 @@ public class MainHardware {
 
         setDrivetrainMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
+
+    public void driveInchesTry(double numInches) {
+        setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        double ticPerInch40 = 22.2816920329;
+        //double ticPerInch402 = 89.127;
+        //double ticPerInch40 = 1.0;
+
+        double power = 0.0;
+        double deltaInches = 0.0;
+
+        while(driveFrontR.getCurrentPosition()/ticPerInch40 < numInches) {
+            deltaInches = driveFrontR.getCurrentPosition()/ticPerInch40;
+            //power = (.3*2*(numInches-deltaInches)/numInches)+.09;
+            driveFrontL.setPower(.4);
+            driveFrontR.setPower(.4);
+            driveRearL.setPower(.4);
+            driveRearR.setPower(.4);
+        }
+
+        driveFrontL.setPower(0);
+        driveFrontR.setPower(0);
+        driveRearL.setPower(0);
+        driveRearR.setPower(0);
+
+    }
     public void driveInchesMORE(double numInches) {
         double ticPerInch40 = 66.85;
         //double ticPerInch402 = 89.127;
@@ -238,6 +263,41 @@ public class MainHardware {
                 power = .6*2*(degrees-deltaAngle)/degrees;
 
                 turn(power);
+            }
+        }
+
+        turn(0);
+        setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    public void turnDegreesTWO (int degrees){
+        double originalAngle = gyro.imu.getAngularOrientation().firstAngle;
+        double deltaAngle = 0.0;
+        double angleAdd = 0.0;
+
+        if (degrees > 0){
+            while (degrees > deltaAngle+3){
+
+                if(deltaAngle < -1){
+                    angleAdd = 360;
+                }
+
+                deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle + angleAdd;
+
+                turn((-.6*2*(degrees-deltaAngle)/degrees)-.09);
+            }
+        }
+
+        else if (degrees < 0){
+            while (degrees < deltaAngle-3){
+
+                if (deltaAngle > 1){
+                    angleAdd = 360;
+                }
+
+                deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle - angleAdd;
+
+                turn((.6*2*(degrees-deltaAngle)/degrees)+.09);
             }
         }
 
