@@ -1,12 +1,16 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.Gyroscope;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 public class MainHardware {
     DcMotor driveFrontR = null;
@@ -19,6 +23,8 @@ public class MainHardware {
     ColorSensor colorSensor = null;
     RobotGyro gyro = null;
     Servo gripper = null;
+    Rev2mDistanceSensor distance = null;
+    //DigitalChannel digitalTouch = null;
     //Servo grabberSideR = null;
     //Servo grabberSideL = null;
 
@@ -52,8 +58,8 @@ public class MainHardware {
         //grabberSideL = hwMap.get(Servo.class,"grabberSideL");
         driveFrontL.setDirection(DcMotorSimple.Direction.REVERSE);
         driveRearL.setDirection(DcMotorSimple.Direction.REVERSE);
-
-
+        distance = hwMap.get(Rev2mDistanceSensor.class, "distance");
+        //digitalTouch = hwMap.get(DigitalChannel .class, "sensor_digital");
     }
 
     public void setDrivetrainMode(DcMotor.RunMode mode) {
@@ -106,6 +112,34 @@ public class MainHardware {
         driveRearR.setPower(0);
 
     }
+
+    public void driveInchesDistance(double power, double d) {
+        setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        if (d > distance.getDistance(DistanceUnit.INCH)){
+            while (d > distance.getDistance(DistanceUnit.INCH)) {
+                driveFrontL.setPower(-power);
+                driveFrontR.setPower(-power);
+                driveRearL.setPower(-power);
+                driveRearR.setPower(-power);
+            }
+        }
+        else{
+            while (d < distance.getDistance(DistanceUnit.INCH)) {
+                driveFrontL.setPower(power);
+                driveFrontR.setPower(power);
+                driveRearL.setPower(power);
+                driveRearR.setPower(power);
+            }
+        }
+
+        driveFrontL.setPower(0);
+        driveFrontR.setPower(0);
+        driveRearL.setPower(0);
+        driveRearR.setPower(0);
+        setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
     public void driveInchesMORE(double numInches) {
         double ticPerInch40 = 66.85;
         //double ticPerInch402 = 89.127;
@@ -312,6 +346,105 @@ public class MainHardware {
         driveRearR.setPower(-power);
         driveRearL.setPower(power);
 
+    }
+
+    public void strafeTry (double power, double numInches){
+        //POSITIVE POWER = RIGHT
+        //NEGATIVE POWER = LEFT
+        setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        boolean check = false;
+        if (power == Math.abs(power)){
+            check = true;
+        }
+
+        double ticPerInch40 = 22.2816920329;
+        double originalAngle = gyro.imu.getAngularOrientation().firstAngle;
+
+
+        while(Math.abs(driveFrontL.getCurrentPosition())/50 < numInches) {
+            if (gyro.imu.getAngularOrientation().firstAngle > originalAngle + 2){
+                if(check){
+                    driveFrontR.setPower(-power-.3);
+                    driveFrontL.setPower(power);
+                    driveRearR.setPower(power);
+                    driveRearL.setPower(-power+.3);
+                }
+                else{
+                    driveFrontR.setPower(-power-.3);
+                    driveFrontL.setPower(power);
+                    driveRearR.setPower(power);
+                    driveRearL.setPower(-power+.3);
+                }
+            }
+            else if (gyro.imu.getAngularOrientation().firstAngle < originalAngle - 2){
+                if (check){
+                    driveFrontR.setPower(-power+.3);
+                    driveFrontL.setPower(power);
+                    driveRearR.setPower(power);
+                    driveRearL.setPower(-power-.3);
+                }
+                else{
+                    driveFrontR.setPower(-power+.3);
+                    driveFrontL.setPower(power);
+                    driveRearR.setPower(power);
+                    driveRearL.setPower(-power-.3);
+                }
+            }
+            else{
+                driveFrontR.setPower(-power);
+                driveFrontL.setPower(power);
+                driveRearR.setPower(power);
+                driveRearL.setPower(-power);
+            }
+
+        }
+
+        driveFrontR.setPower(0);
+        driveFrontL.setPower(0);
+        driveRearR.setPower(0);
+        driveRearL.setPower(0);
+        setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    public void driveInchesTry2(double numInches) {
+        setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        double ticPerInch40 = 22.2816920329;
+        //double ticPerInch402 = 89.127;
+        //double ticPerInch40 = 1.0;
+
+        double power = 0.0;
+        double deltaInches = 0.0;
+
+        while(driveFrontR.getCurrentPosition()/ticPerInch40 < numInches) {
+            deltaInches = driveFrontR.getCurrentPosition()/ticPerInch40;
+            //power = (.3*2*(numInches-deltaInches)/numInches)+.09;
+            driveFrontL.setPower(.4);
+            driveFrontR.setPower(.4);
+            driveRearL.setPower(.4);
+            driveRearR.setPower(.4);
+        }
+
+        driveFrontL.setPower(0);
+        driveFrontR.setPower(0);
+        driveRearL.setPower(0);
+        driveRearR.setPower(0);
+        setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+    public void straighten (double target){
+        setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        while (gyro.imu.getAngularOrientation().firstAngle > target + 2){
+            driveFrontL.setPower(.2);
+            driveFrontR.setPower(0);
+            driveRearL.setPower(0);
+            driveRearR.setPower(-.2);
+        }
+        while (gyro.imu.getAngularOrientation().firstAngle < target - 2){
+            driveFrontL.setPower(-.2);
+            driveFrontR.setPower(0);
+            driveRearL.setPower(0);
+            driveRearR.setPower(.2);
+        }
+        setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
 

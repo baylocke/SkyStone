@@ -36,6 +36,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+
 /**
  * This file contains an example of an iterative (Non-Linear) "OpMode".
  * An OpMode is a 'program' that runs in either the autonomous or the teleop period of an FTC match.
@@ -86,7 +88,7 @@ public class GyroTester extends OpMode
      */
     @Override
     public void loop() {
-        telemetry.addData("frontR", robot.driveFrontR.getCurrentPosition());
+        telemetry.addData("position: " , robot.driveFrontR.getCurrentPosition());
         telemetry.update();
     }
 
