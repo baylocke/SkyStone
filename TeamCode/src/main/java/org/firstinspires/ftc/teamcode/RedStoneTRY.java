@@ -10,8 +10,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
-import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
-
 /**
  * This file contains an example of an iterative (Non-Linear) "OpMode".
  * An OpMode is a 'program' that runs in either the autonomous or the teleop period of an FTC match.
@@ -25,9 +23,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
-@Disabled
-@Autonomous(name="RedStoneDistanceMid", group="Linear Opmode")
-public class ARedStoneDistanceMid extends LinearOpMode
+
+@Autonomous(name="RedStoneTRY", group="Linear Opmode")
+public class RedStoneTRY extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -61,10 +59,12 @@ public class ARedStoneDistanceMid extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeTry(-.6, 8);
+        robot.strafeTry(-.6, 6);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        //robot.driveInchesDistance(.4, 5.5);
+        robot.driveInches(31);
+        sleep(2500);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         sleep(300);
         Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
@@ -79,7 +79,6 @@ public class ARedStoneDistanceMid extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             robot.driveInchesMORE(4);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -93,33 +92,37 @@ public class ARedStoneDistanceMid extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.driveInchesMORE(-7);
+            robot.driveInchesMORE(-8.5);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegreesTWO(-90);
-            sleep(300);
+            robot.turnDegreesTWO(-86);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.driveInchesMORE(55);
-            sleep(3000);
+            robot.driveInchesMORE(65);
+            sleep(5000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.grabberFront.setPosition(0);
             sleep(1000);
 
-            robot.driveInchesMORE(-15);
-            sleep(3000);
+            robot.driveInchesMORE(-20);
+            sleep(4000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         }
 
         else {
-            //robot.driveInchesDistance(.2, .9);
-
-            robot.strafeTry(.6, 34);
+            robot.driveInchesMORE(-3);
+            sleep(800);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            //robot.driveInchesDistance(.2, .9);
+            robot.strafeTry(.6, 16);
+            sleep(1000);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.driveInchesMORE(2);
+            sleep(500);
+            robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             sleep(500);
             Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
@@ -148,35 +151,33 @@ public class ARedStoneDistanceMid extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-7);
+                robot.driveInchesMORE(-8);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegreesTWO(-90);
-                sleep(300);
+                robot.turnDegreesTWO(-95);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(47);
-                sleep(1800);
+                robot.driveInchesMORE(60);
+                sleep(5000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
-                robot.driveInchesMORE(-15);
-                sleep(1000);
+                robot.driveInchesMORE(-20);
+                sleep(3000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
 
-                //robot.driveInchesDistance(.2, .9);
-
-                robot.strafeTry(.6, 20);
-                sleep(2000);
+                robot.driveInchesMORE(-4);
+                sleep(1300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(-2);
-                sleep(500);
+                robot.strafeTry(.6, 15);
+                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(-.5);
@@ -204,7 +205,7 @@ public class ARedStoneDistanceMid extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.turnDegreesTWO(-90);
-                sleep(300);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(43);

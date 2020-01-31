@@ -96,11 +96,11 @@ public class BlueStoneTRY extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.driveInchesMORE(-6);
+            robot.driveInchesMORE(-7.5);
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegreesTWO(86);
+            robot.turnDegreesTWO(87);
             sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -118,14 +118,14 @@ public class BlueStoneTRY extends LinearOpMode
 
         else {
 
-            robot.driveInches(-2);
-            sleep(500);
+            robot.driveInches(-3);
+            sleep(1000);
 
-            robot.strafeTry(-.6, 22);
+            robot.strafeTry(-.6, 16);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.driveInches(2);
+            robot.driveInches(1);
             sleep(500);
 
             sleep(500);
@@ -155,7 +155,7 @@ public class BlueStoneTRY extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-5);
+                robot.driveInchesMORE(-6);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -179,7 +179,7 @@ public class BlueStoneTRY extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.strafeTry(-.6, 10);
+                robot.strafeTry(-.6, 15);
                 sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -203,7 +203,7 @@ public class BlueStoneTRY extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-5);
+                robot.driveInchesMORE(-6.5);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 

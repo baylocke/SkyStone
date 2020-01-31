@@ -23,7 +23,7 @@ public class MainHardware {
     ColorSensor colorSensor = null;
     RobotGyro gyro = null;
     Servo gripper = null;
-    Rev2mDistanceSensor distance = null;
+    //Rev2mDistanceSensor distance = null;
     //DigitalChannel digitalTouch = null;
     //Servo grabberSideR = null;
     //Servo grabberSideL = null;
@@ -58,7 +58,7 @@ public class MainHardware {
         //grabberSideL = hwMap.get(Servo.class,"grabberSideL");
         driveFrontL.setDirection(DcMotorSimple.Direction.REVERSE);
         driveRearL.setDirection(DcMotorSimple.Direction.REVERSE);
-        distance = hwMap.get(Rev2mDistanceSensor.class, "distance");
+        //distance = hwMap.get(Rev2mDistanceSensor.class, "distance");
         //digitalTouch = hwMap.get(DigitalChannel .class, "sensor_digital");
     }
 
@@ -113,7 +113,7 @@ public class MainHardware {
 
     }
 
-    public void driveInchesDistance(double power, double d) {
+    /* public void driveInchesDistance(double power, double d) {
         setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         if (d > distance.getDistance(DistanceUnit.INCH)){
@@ -138,7 +138,7 @@ public class MainHardware {
         driveRearL.setPower(0);
         driveRearR.setPower(0);
         setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
-    }
+    } */
 
     public void driveInchesMORE(double numInches) {
         double ticPerInch40 = 66.85;

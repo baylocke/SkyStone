@@ -24,8 +24,8 @@ import com.qualcomm.robotcore.util.Range;
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
-
-@Autonomous(name="ABlueStoneDistanceMid", group="Linear Opmode")
+@Disabled
+@Autonomous(name="BlueStoneDistanceMid", group="Linear Opmode")
 public class ABlueStoneDistanceMid extends LinearOpMode
 {
     // Declare OpMode members.
@@ -64,7 +64,7 @@ public class ABlueStoneDistanceMid extends LinearOpMode
         sleep(1000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.driveInchesDistance(.4, 4);
+        //robot.driveInchesDistance(.4, 4);
         sleep(2000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
