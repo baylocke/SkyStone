@@ -96,7 +96,7 @@ public class NewRedAuto extends LinearOpMode
             sleep(500);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegreesTWO(-86);
+            robot.turnDegreesTWO(-90);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.driveInchesMORE(82);
@@ -151,10 +151,10 @@ public class NewRedAuto extends LinearOpMode
             robot.liftR.setPower(0);
 
             robot.driveInchesMORE(-40);
-            sleep(2500);
+            sleep(2000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegreesTWOTWO(-90);
+            robot.turnDegreesTWOTWO(-87);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         }
 
@@ -164,7 +164,6 @@ public class NewRedAuto extends LinearOpMode
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.strafeTry(.6, 16);
-            sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.driveInchesMORE(2);
@@ -206,8 +205,8 @@ public class NewRedAuto extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(79);
-                sleep(3000);
+                robot.driveInchesMORE(70);
+                sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(.5);
@@ -216,13 +215,13 @@ public class NewRedAuto extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.turnDegreesTWO(86);
+                robot.turnDegreesTWO(82);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.waitTouch(.5);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInches(1);
+                robot.driveInches(2);
                 sleep (300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -246,7 +245,7 @@ public class NewRedAuto extends LinearOpMode
                 robot.waitTouch(.5);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInches(1);
+                robot.driveInches(3);
                 sleep (300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -266,11 +265,10 @@ public class NewRedAuto extends LinearOpMode
             else{
 
                 robot.driveInchesMORE(-4);
-                sleep(1300);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.strafeTry(.6, 15);
-                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(-.5);
@@ -285,7 +283,7 @@ public class NewRedAuto extends LinearOpMode
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(.85);
-                sleep(1000);
+                sleep(500);
 
                 robot.liftL.setPower(.5);
                 robot.liftR.setPower(.5);
@@ -301,8 +299,8 @@ public class NewRedAuto extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(71);
-                sleep(3000);
+                robot.driveInchesMORE(62);
+                sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(.5);
@@ -311,14 +309,14 @@ public class NewRedAuto extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.turnDegreesTWO(86);
+                robot.turnDegreesTWO(82);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.waitTouch(.5);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInches(3);
-                sleep (300);
+                robot.driveInches(5);
+                sleep (500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(-.5);
@@ -353,10 +351,10 @@ public class NewRedAuto extends LinearOpMode
                 robot.liftR.setPower(0);
 
                 robot.driveInchesMORE(-40);
-                sleep(2000);
+                sleep(1700);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegreesTWOTWO(-90);
+                robot.turnDegreesTWOTWO(-85);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
         }
