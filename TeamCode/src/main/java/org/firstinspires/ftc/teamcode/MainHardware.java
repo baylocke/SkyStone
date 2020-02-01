@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsTouchSensor;
 import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -24,7 +25,7 @@ public class MainHardware {
     RobotGyro gyro = null;
     Servo gripper = null;
     //Rev2mDistanceSensor distance = null;
-    //DigitalChannel digitalTouch = null;
+    ModernRoboticsTouchSensor touch = null;
     //Servo grabberSideR = null;
     //Servo grabberSideL = null;
 
@@ -59,7 +60,7 @@ public class MainHardware {
         driveFrontL.setDirection(DcMotorSimple.Direction.REVERSE);
         driveRearL.setDirection(DcMotorSimple.Direction.REVERSE);
         //distance = hwMap.get(Rev2mDistanceSensor.class, "distance");
-        //digitalTouch = hwMap.get(DigitalChannel .class, "sensor_digital");
+        touch = hwMap.get(ModernRoboticsTouchSensor.class, "touch");
     }
 
     public void setDrivetrainMode(DcMotor.RunMode mode) {
@@ -339,6 +340,40 @@ public class MainHardware {
         setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
+    public void turnDegreesTWOTWO (int degrees){
+        double originalAngle = gyro.imu.getAngularOrientation().firstAngle;
+        double deltaAngle = 0.0;
+        double angleAdd = 0.0;
+
+        if (degrees > 0){
+            while (degrees > deltaAngle+3){
+
+                if(deltaAngle < -1){
+                    angleAdd = 360;
+                }
+
+                deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle + angleAdd;
+
+                turn((-.6*2*(degrees-deltaAngle)/degrees)-1.2);
+            }
+        }
+        else if (degrees < 0){
+            while (degrees < deltaAngle-3){
+
+                if (deltaAngle > 1){
+                    angleAdd = 360;
+                }
+
+                deltaAngle = gyro.imu.getAngularOrientation().firstAngle - originalAngle - angleAdd;
+
+                turn((.6*2*(degrees-deltaAngle)/degrees)+1.2);
+            }
+        }
+
+        turn(0);
+        setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
     public void turn (double power) {
         setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         driveFrontR.setPower(-power);
@@ -443,6 +478,20 @@ public class MainHardware {
             driveFrontR.setPower(0);
             driveRearL.setPower(0);
             driveRearR.setPower(.2);
+        }
+        setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    }
+
+    public void waitTouch (double power){
+        setDrivetrainMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        double current = driveFrontR.getCurrentPosition();
+
+        while (driveFrontR.getCurrentPosition()-current <10000 && !touch.isPressed()){
+            driveFrontL.setPower(power);
+            driveFrontR.setPower(power);
+            driveRearL.setPower(power);
+            driveRearR.setPower(power);
         }
         setDrivetrainMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }

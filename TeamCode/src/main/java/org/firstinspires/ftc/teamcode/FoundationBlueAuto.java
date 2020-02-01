@@ -46,7 +46,7 @@ public class FoundationBlueAuto extends LinearOpMode
         sleep(3000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.driveInches(32);
+        robot.driveInches(34);
         sleep(4000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -66,8 +66,15 @@ public class FoundationBlueAuto extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.driveInchesMORE(-45);
-        sleep(6000);
+        robot.driveInchesMORE(-40);
+        sleep(3000);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.turnDegreesTWOTWO(90);
+        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.driveInchesMORE(10);
+        sleep(1000);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.liftL.setPower(.5);
@@ -76,21 +83,11 @@ public class FoundationBlueAuto extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeInR(45);
-        sleep(4000);
+        robot.strafeTry(-.5, 30);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.turnDegrees(-95);
-        robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-        robot.liftL.setPower(-.5);
-        robot.liftR.setPower(-.5);
-        sleep(1200);
-        robot.liftL.setPower(0);
-        robot.liftR.setPower(0);
-
-        robot.driveInches(25);
-        sleep(5000);
+        robot.driveInches(-45);
+        sleep(7000);
     }
 
 
