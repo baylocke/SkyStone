@@ -59,7 +59,7 @@ public class NewBlueAuto extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeTry(.6, 12);
+        robot.strafeTry(.6, 9);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.driveInches(31);
@@ -94,8 +94,8 @@ public class NewBlueAuto extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.driveInchesMORE(-7.5);
-            sleep(500);
+            robot.driveInchesMORE(-11);
+            sleep(800);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.turnDegreesTWO(87);
@@ -199,8 +199,8 @@ public class NewBlueAuto extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-6);
-                sleep(500);
+                robot.driveInchesMORE(-7);
+                sleep(800);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.turnDegreesTWO(87);
@@ -291,11 +291,11 @@ public class NewBlueAuto extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-6.5);
+                robot.driveInchesMORE(-9);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegreesTWO(88);
+                robot.turnDegreesTWO(91);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.driveInchesMORE(68);

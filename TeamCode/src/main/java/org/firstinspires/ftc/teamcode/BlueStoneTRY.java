@@ -25,7 +25,7 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="BlueStoneTRY", group="Linear Opmode")
+@Autonomous(name="aaBlueStoneTRY", group="Linear Opmode")
 public class BlueStoneTRY extends LinearOpMode
 {
     // Declare OpMode members.
@@ -60,8 +60,8 @@ public class BlueStoneTRY extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeTry(.6, 12);
-        sleep(1000);
+        robot.strafeTry(.6, 10);
+        sleep(900);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         robot.driveInches(31);
@@ -96,11 +96,11 @@ public class BlueStoneTRY extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.driveInchesMORE(-7.5);
-            sleep(500);
+            robot.driveInchesMORE(-10);
+            sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegreesTWO(87);
+            robot.turnDegreesTWO(88);
             sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -118,15 +118,15 @@ public class BlueStoneTRY extends LinearOpMode
 
         else {
 
-            robot.driveInches(-3);
+            robot.driveInches(-4);
             sleep(1000);
 
             robot.strafeTry(-.6, 16);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.driveInches(1);
-            sleep(500);
+            robot.driveInches(2);
+            sleep(800);
 
             sleep(500);
             Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
@@ -155,7 +155,7 @@ public class BlueStoneTRY extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-6);
+                robot.driveInchesMORE(-8);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -163,15 +163,15 @@ public class BlueStoneTRY extends LinearOpMode
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(55);
-                sleep(1800);
+                robot.driveInchesMORE(60);
+                sleep(3000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
-                robot.driveInchesMORE(-20);
-                sleep(1000);
+                robot.driveInchesMORE(-25);
+                sleep(3000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
@@ -203,8 +203,8 @@ public class BlueStoneTRY extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-6.5);
-                sleep(500);
+                robot.driveInchesMORE(-9);
+                sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.turnDegreesTWO(87);

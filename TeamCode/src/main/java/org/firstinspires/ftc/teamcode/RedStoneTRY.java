@@ -24,7 +24,7 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="RedStoneTRY", group="Linear Opmode")
+@Autonomous(name="aaRedStoneTRY", group="Linear Opmode")
 public class RedStoneTRY extends LinearOpMode
 {
     // Declare OpMode members.
@@ -92,11 +92,11 @@ public class RedStoneTRY extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.driveInchesMORE(-8.5);
-            sleep(500);
+            robot.driveInchesMORE(-8);
+            sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegreesTWO(-86);
+            robot.turnDegreesTWO(-89);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             robot.driveInchesMORE(65);
@@ -116,7 +116,7 @@ public class RedStoneTRY extends LinearOpMode
             sleep(800);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.strafeTry(.6, 16);
+            robot.strafeTry(.6, 14.5);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -151,11 +151,11 @@ public class RedStoneTRY extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-8);
+                robot.driveInchesMORE(-9);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegreesTWO(-95);
+                robot.turnDegreesTWO(-93);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -166,8 +166,8 @@ public class RedStoneTRY extends LinearOpMode
                 robot.grabberFront.setPosition(0);
                 sleep(500);
 
-                robot.driveInchesMORE(-20);
-                sleep(3000);
+                robot.driveInchesMORE(-28);
+                sleep(5000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             }
             else{
@@ -178,6 +178,10 @@ public class RedStoneTRY extends LinearOpMode
 
                 robot.strafeTry(.6, 15);
                 sleep(2000);
+                robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+                robot.driveInchesMORE(-2);
+                sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.liftL.setPower(-.5);
@@ -200,8 +204,8 @@ public class RedStoneTRY extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-7.7);
-                sleep(500);
+                robot.driveInchesMORE(-9);
+                sleep(1000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
                 robot.turnDegreesTWO(-90);

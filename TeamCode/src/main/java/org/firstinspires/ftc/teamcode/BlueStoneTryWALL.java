@@ -24,9 +24,9 @@ import com.qualcomm.robotcore.util.Range;
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
-@Disabled
-@Autonomous(name="zStoneBlueAutoONEwall", group="Linear Opmode")
-public class StoneBlueAutoONEwall extends LinearOpMode
+
+@Autonomous(name="aaBlueStoneTryWALL", group="Linear Opmode")
+public class BlueStoneTryWALL extends LinearOpMode
 {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
@@ -60,11 +60,11 @@ public class StoneBlueAutoONEwall extends LinearOpMode
         robot.liftL.setPower(0);
         robot.liftR.setPower(0);
 
-        robot.strafeInR(7);
-        sleep(1500);
+        robot.strafeTry(.6, 10);
+        sleep(900);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.driveInches(32);
+        robot.driveInches(31);
         sleep(2500);
         robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -96,15 +96,15 @@ public class StoneBlueAutoONEwall extends LinearOpMode
             robot.liftL.setPower(0);
             robot.liftR.setPower(0);
 
-            robot.driveInchesMORE(-50);
-            sleep(4000);
+            robot.driveInchesMORE(-60);
+            sleep(5000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.turnDegreesTWO(90);
+            robot.turnDegreesTWO(87);
             sleep(300);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            robot.driveInches(60);
+            robot.driveInchesMORE(60);
             sleep(3000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -118,9 +118,15 @@ public class StoneBlueAutoONEwall extends LinearOpMode
 
         else {
 
-            robot.strafeInL(14);
+            robot.driveInches(-4);
+            sleep(1000);
+
+            robot.strafeTry(-.6, 16);
             sleep(1000);
             robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.driveInches(2);
+            sleep(800);
 
             sleep(500);
             Color.RGBToHSV(robot.colorSensor.red() * 8, robot.colorSensor.green() * 8, robot.colorSensor.blue() * 8, hsvValues);
@@ -149,15 +155,15 @@ public class StoneBlueAutoONEwall extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-50);
-                sleep(4000);
+                robot.driveInchesMORE(-60);
+                sleep(5000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegreesTWO(90);
+                robot.turnDegreesTWO(87);
                 sleep(300);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInches(55);
+                robot.driveInchesMORE(55);
                 sleep(1800);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -173,7 +179,7 @@ public class StoneBlueAutoONEwall extends LinearOpMode
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.strafeInL(15);
+                robot.strafeTry(-.6, 15);
                 sleep(2000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -184,7 +190,7 @@ public class StoneBlueAutoONEwall extends LinearOpMode
                 robot.liftR.setPower(0);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInchesMORE(6);
+                robot.driveInchesMORE(7);
                 sleep(400);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -197,15 +203,15 @@ public class StoneBlueAutoONEwall extends LinearOpMode
                 robot.liftL.setPower(0);
                 robot.liftR.setPower(0);
 
-                robot.driveInchesMORE(-50);
-                sleep(4000);
+                robot.driveInchesMORE(-60);
+                sleep(5000);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.turnDegreesTWO(90);
+                robot.turnDegreesTWO(87);
                 sleep(500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-                robot.driveInches(50);
+                robot.driveInchesMORE(50);
                 sleep(2500);
                 robot.setDrivetrainMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
